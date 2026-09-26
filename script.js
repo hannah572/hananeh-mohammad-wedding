@@ -1,622 +1,192 @@
-/* =====================================================
-   FIREBASE CONFIG
-=====================================================
+/* =========================================
+   عناصر صفحه
+========================================= */
 
-   بعداً اطلاعات Firebase خودت را اینجا می‌گذاری.
+const intro = document.getElementById("intro");
+const mainContent = document.getElementById("mainContent");
 
-===================================================== */
+const enterButton = document.getElementById("enterButton");
 
-
-const firebaseConfig = {
-
-    apiKey:
-        "YOUR_API_KEY",
-
-    authDomain:
-        "YOUR_PROJECT.firebaseapp.com",
-
-    databaseURL:
-        "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-
-    projectId:
-        "YOUR_PROJECT_ID",
-
-    storageBucket:
-        "YOUR_PROJECT.firebasestorage.app",
-
-    messagingSenderId:
-        "YOUR_SENDER_ID",
-
-    appId:
-        "YOUR_APP_ID"
-
-};
+const musicButton = document.getElementById("musicButton");
+const musicIcon = document.getElementById("musicIcon");
+const weddingMusic = document.getElementById("weddingMusic");
 
 
-let database = null;
+/* =========================================
+   ورود به دعوت‌نامه
+   و شروع موسیقی
+========================================= */
+
+enterButton.addEventListener("click", async () => {
+
+    intro.style.opacity = "0";
+    intro.style.transition = "opacity 0.7s ease";
+
+    setTimeout(() => {
+        intro.style.display = "none";
+
+        mainContent.classList.remove("hidden");
+        musicButton.classList.remove("hidden");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+
+    }, 700);
 
 
-/* =====================================================
-   FIREBASE INITIALIZATION
-===================================================== */
+    /*
+       شروع موسیقی بعد از کلیک کاربر.
+       این روش با محدودیت‌های Autoplay مرورگرها
+       سازگارتر است.
+    */
 
+    try {
 
-const firebaseConfigured =
-    !Object
-        .values(firebaseConfig)
-        .some(value =>
-            String(value).startsWith("YOUR_")
+        await weddingMusic.play();
+
+        musicButton.classList.add("playing");
+        musicIcon.textContent = "Ⅱ";
+
+    } catch (error) {
+
+        console.log(
+            "پخش خودکار موسیقی توسط مرورگر اجازه داده نشد."
         );
 
+    }
 
-if (firebaseConfigured) {
-
-    firebase.initializeApp(firebaseConfig);
-
-    database =
-        firebase.database();
-
-}
+});
 
 
-/* =====================================================
-   INTRO
-===================================================== */
+/* =========================================
+   کنترل موسیقی
+========================================= */
 
+musicButton.addEventListener("click", async () => {
 
-const intro =
-    document.getElementById("intro");
-
-const website =
-    document.getElementById("website");
-
-const openButton =
-    document.getElementById("openInvitation");
-
-
-const music =
-    document.getElementById("weddingMusic");
-
-const musicButton =
-    document.getElementById("musicButton");
-
-
-openButton.addEventListener(
-    "click",
-    async () => {
-
-        intro.classList.add("hidden");
-
-        website.hidden = false;
-
-
-        /*
-         * چون این تابع توسط کاربر
-         * اجرا شده، مرورگر اجازه
-         * پخش موسیقی را می‌دهد.
-         */
+    if (weddingMusic.paused) {
 
         try {
 
-            await music.play();
+            await weddingMusic.play();
 
-            musicButton.classList.add(
-                "playing"
-            );
+            musicButton.classList.add("playing");
+            musicIcon.textContent = "Ⅱ";
 
-        }
+        } catch (error) {
 
-        catch (error) {
-
-            console.log(
-                "Autoplay blocked:",
-                error
-            );
+            console.log("امکان پخش موسیقی وجود ندارد.");
 
         }
+
+    } else {
+
+        weddingMusic.pause();
+
+        musicButton.classList.remove("playing");
+        musicIcon.textContent = "♫";
 
     }
-);
+
+});
 
 
-/* =====================================================
-   MUSIC BUTTON
-===================================================== */
-
-
-musicButton.addEventListener(
-    "click",
-    async () => {
-
-        if (music.paused) {
-
-            try {
-
-                await music.play();
-
-                musicButton.classList.add(
-                    "playing"
-                );
-
-            }
-
-            catch (error) {
-
-                console.log(error);
-
-            }
-
-        }
-
-        else {
-
-            music.pause();
-
-            musicButton.classList.remove(
-                "playing"
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   COUNTDOWN
-===================================================== */
-
+/* =========================================
+   شمارش معکوس
+========================================= */
 
 /*
-   16 مهر 1405
-   = 8 October 2026
-
-   ساعت شروع:
-   19:00
-   Iran UTC+3:30
+   تاریخ مراسم:
+   ۱۶ مهر ۱۴۰۵
+   برابر با ۸ اکتبر ۲۰۲۶
+   ساعت ۱۹:۰۰
 */
 
-
-const weddingDate =
-    new Date(
-        "2026-10-08T19:00:00+03:30"
-    ).getTime();
+const weddingDate = new Date(
+    "2026-10-08T19:00:00+03:30"
+);
 
 
 function updateCountdown() {
 
-    const now =
-        Date.now();
+    const now = new Date();
+
+    const difference = weddingDate.getTime() - now.getTime();
 
 
-    let difference =
-        weddingDate - now;
+    /*
+       اگر مراسم شروع شده باشد
+    */
 
+    if (difference <= 0) {
 
-    if (difference < 0) {
+        document.getElementById("days").textContent = "۰";
+        document.getElementById("hours").textContent = "۰";
+        document.getElementById("minutes").textContent = "۰";
+        document.getElementById("seconds").textContent = "۰";
 
-        difference = 0;
-
+        return;
     }
 
 
-    const days =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-        );
+    const totalSeconds = Math.floor(
+        difference / 1000
+    );
 
 
-    const hours =
-        Math.floor(
-            difference /
-            (1000 * 60 * 60)
-        ) % 24;
+    const days = Math.floor(
+        totalSeconds / (24 * 60 * 60)
+    );
+
+    const hours = Math.floor(
+        (totalSeconds % (24 * 60 * 60)) /
+        (60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (totalSeconds % (60 * 60)) /
+        60
+    );
+
+    const seconds = totalSeconds % 60;
 
 
-    const minutes =
-        Math.floor(
-            difference /
-            (1000 * 60)
-        ) % 60;
+    document.getElementById("days").textContent =
+        toPersianNumber(days);
+
+    document.getElementById("hours").textContent =
+        toPersianNumber(hours);
+
+    document.getElementById("minutes").textContent =
+        toPersianNumber(minutes);
+
+    document.getElementById("seconds").textContent =
+        toPersianNumber(seconds);
+}
 
 
-    const seconds =
-        Math.floor(
-            difference /
-            1000
-        ) % 60;
+/* =========================================
+   تبدیل اعداد انگلیسی به فارسی
+========================================= */
 
+function toPersianNumber(number) {
 
-    document.getElementById(
-        "days"
-    ).textContent = days;
-
-
-    document.getElementById(
-        "hours"
-    ).textContent =
-        String(hours).padStart(
-            2,
-            "0"
-        );
-
-
-    document.getElementById(
-        "minutes"
-    ).textContent =
-        String(minutes).padStart(
-            2,
-            "0"
-        );
-
-
-    document.getElementById(
-        "seconds"
-    ).textContent =
-        String(seconds).padStart(
-            2,
-            "0"
-        );
+    return number
+        .toString()
+        .replace(/\d/g, digit => "۰۱۲۳۴۵۶۷۸۹"[digit]);
 
 }
 
 
-updateCountdown();
+/* =========================================
+   اجرای شمارش معکوس
+========================================= */
 
+updateCountdown();
 
 setInterval(
     updateCountdown,
     1000
-);
-
-
-/* =====================================================
-   GUESTBOOK
-===================================================== */
-
-
-const form =
-    document.getElementById(
-        "guestbookForm"
-    );
-
-
-const nameInput =
-    document.getElementById(
-        "guestName"
-    );
-
-
-const messageInput =
-    document.getElementById(
-        "guestMessage"
-    );
-
-
-const status =
-    document.getElementById(
-        "formStatus"
-    );
-
-
-const messages =
-    document.getElementById(
-        "messages"
-    );
-
-
-/* جلوگیری از HTML Injection */
-
-function escapeHTML(text) {
-
-    return String(text)
-        .replace(
-            /[&<>"']/g,
-            character => {
-
-                const map = {
-
-                    "&": "&amp;",
-
-                    "<": "&lt;",
-
-                    ">": "&gt;",
-
-                    '"': "&quot;",
-
-                    "'": "&#039;"
-
-                };
-
-                return map[character];
-
-            }
-        );
-
-}
-
-
-/* =====================================================
-   RENDER MESSAGE
-===================================================== */
-
-
-function renderMessage(data) {
-
-    const article =
-        document.createElement(
-            "article"
-        );
-
-
-    article.className =
-        "message";
-
-
-    const date =
-        data.createdAt
-            ? new Date(
-                data.createdAt
-              ).toLocaleDateString(
-                "fa-IR"
-              )
-            : "";
-
-
-    article.innerHTML = `
-
-        <div class="message-header">
-
-            <strong>
-                ${escapeHTML(data.name)}
-            </strong>
-
-            <time>
-                ${date}
-            </time>
-
-        </div>
-
-        <p>
-            ${escapeHTML(data.message)}
-        </p>
-
-    `;
-
-
-    return article;
-
-}
-
-
-/* =====================================================
-   LOAD MESSAGES
-===================================================== */
-
-
-function showLocalMessages() {
-
-    const saved =
-        JSON.parse(
-            localStorage.getItem(
-                "weddingGuestbook"
-            ) || "[]"
-        );
-
-
-    messages.innerHTML = "";
-
-
-    if (!saved.length) {
-
-        messages.innerHTML = `
-            <p>
-                هنوز یادبودی ثبت نشده است.
-                اولین نفر باشید 🤍
-            </p>
-        `;
-
-        return;
-
-    }
-
-
-    saved
-        .slice()
-        .reverse()
-        .forEach(
-            message => {
-
-                messages.appendChild(
-                    renderMessage(
-                        message
-                    )
-                );
-
-            }
-        );
-
-}
-
-
-/*
-   اگر Firebase وصل شده باشد،
-   پیام‌ها از دیتابیس خوانده می‌شوند.
-*/
-
-
-if (database) {
-
-    database
-        .ref("guestbook")
-        .orderByChild("createdAt")
-        .limitToLast(100)
-        .on(
-            "value",
-            snapshot => {
-
-                messages.innerHTML = "";
-
-
-                let count = 0;
-
-
-                snapshot.forEach(
-                    child => {
-
-                        const message =
-                            child.val();
-
-
-                        messages.prepend(
-                            renderMessage(
-                                message
-                            )
-                        );
-
-
-                        count++;
-
-                    }
-                );
-
-
-                if (count === 0) {
-
-                    messages.innerHTML = `
-                        <p>
-                            هنوز یادبودی ثبت نشده است.
-                            اولین نفر باشید 🤍
-                        </p>
-                    `;
-
-                }
-
-            }
-        );
-
-}
-
-else {
-
-    /*
-       فقط برای تست محلی.
-       بعد از تنظیم Firebase
-       این حالت دیگر استفاده نمی‌شود.
-    */
-
-    showLocalMessages();
-
-}
-
-
-/* =====================================================
-   SUBMIT GUESTBOOK
-===================================================== */
-
-
-form.addEventListener(
-    "submit",
-    async event => {
-
-        event.preventDefault();
-
-
-        const name =
-            nameInput.value.trim();
-
-
-        const message =
-            messageInput.value.trim();
-
-
-        if (!name || !message) {
-
-            return;
-
-        }
-
-
-        status.textContent =
-            "در حال ثبت پیام...";
-
-
-        const data = {
-
-            name:
-                name,
-
-            message:
-                message,
-
-            createdAt:
-                Date.now()
-
-        };
-
-
-        try {
-
-
-            if (database) {
-
-                await database
-                    .ref("guestbook")
-                    .push(data);
-
-            }
-
-
-            else {
-
-                /*
-                   حالت آزمایشی
-                */
-
-                const saved =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "weddingGuestbook"
-                        ) || "[]"
-                    );
-
-
-                saved.push(data);
-
-
-                localStorage.setItem(
-                    "weddingGuestbook",
-                    JSON.stringify(
-                        saved.slice(-100)
-                    )
-                );
-
-
-                showLocalMessages();
-
-            }
-
-
-            form.reset();
-
-
-            status.textContent =
-                "یادبود شما ثبت شد 🤍";
-
-
-        }
-
-
-        catch (error) {
-
-            console.error(error);
-
-
-            status.textContent =
-                "ثبت پیام انجام نشد. دوباره تلاش کنید.";
-
-        }
-
-    }
 );
