@@ -1,44 +1,439 @@
+/* =========================================
+   تنظیمات پایه
+========================================= */
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-
 
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
-    margin: 0;
-
-    background: #f7f1e7;
-
-    color: #49382f;
-
-    font-family:
-        Estedad,
-        "Noto Naskh Arabic",
-        sans-serif;
-
+    direction: rtl;
+    font-family: "Estedad", sans-serif;
+    background: #f8f4ee;
+    color: #51443d;
     line-height: 1.9;
+    overflow-x: hidden;
+}
 
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+}
+
+a {
+    text-decoration: none;
 }
 
 
-/* =========================
-   INTRO
-========================= */
+/* =========================================
+   صفحه آغازین
+========================================= */
 
 .intro {
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-    position: fixed;
+    padding: 30px 20px;
 
-    inset: 0;
+    background:
+        radial-gradient(
+            circle at center,
+            #fffdf9 0%,
+            #f8f3eb 55%,
+            #eee5d9 100%
+        );
 
-    z-index: 100;
+    position: relative;
+    overflow: hidden;
+}
 
-    background: #f7f1e7;
+.intro::before,
+.intro::after {
+    content: "";
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border: 1px solid rgba(142, 116, 95, 0.15);
+    border-radius: 50%;
+}
+
+.intro::before {
+    top: -130px;
+    right: -130px;
+}
+
+.intro::after {
+    bottom: -130px;
+    left: -130px;
+}
+
+.intro-content {
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+    z-index: 2;
+
+    animation: fadeUp 1.2s ease both;
+}
+
+.intro-small {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 17px;
+    color: #897467;
+    margin-bottom: 30px;
+}
+
+.intro-symbol {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 34px;
+    color: #826c5d;
+    letter-spacing: 7px;
+    margin-bottom: 10px;
+}
+
+.intro-symbol span {
+    font-size: 22px;
+    margin: 0 3px;
+}
+
+.intro h1 {
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: clamp(42px, 12vw, 70px);
+    font-weight: 500;
+    color: #493b34;
+    line-height: 1.4;
+}
+
+.intro-line {
+    width: 70px;
+    height: 1px;
+    background: #b29a87;
+    margin: 22px auto;
+}
+
+.intro p {
+    color: #806f63;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   دکمه اصلی
+========================================= */
+
+.main-button {
+    background: #675349;
+    color: #fffaf5;
+
+    padding: 13px 30px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(77, 60, 50, 0.16);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.main-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(77, 60, 50, 0.22);
+    background: #57463d;
+}
+
+.main-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   محتوای اصلی
+========================================= */
+
+.main-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section {
+    padding: 85px 22px;
+    text-align: center;
+}
+
+
+/* =========================================
+   Hero
+========================================= */
+
+.hero {
+    min-height: 90svh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #faf7f2,
+            #f5eee6
+        );
+}
+
+.decorative-line {
+    width: 65px;
+    height: 1px;
+    background: #ad9582;
+    margin: 20px auto;
+}
+
+.eyebrow,
+.section-label {
+    color: #967e6d;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-family: "Noto Naskh Arabic", serif;
+
+    font-size: clamp(48px, 14vw, 85px);
+
+    font-weight: 500;
+
+    color: #4d3e35;
+
+    line-height: 1.45;
+
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    display: inline-block;
+
+    font-size: 30px;
+
+    color: #a28773;
+
+    margin: 0 7px;
+}
+
+.hero-date {
+    font-size: 16px;
+    color: #765f51;
+    margin-top: 3px;
+}
+
+.hero-poem {
+    font-family: "Noto Naskh Arabic", serif;
+
+    font-size: 19px;
+
+    color: #66554b;
+
+    margin-top: 35px;
+
+    max-width: 450px;
+}
+
+
+/* =========================================
+   متن دعوت
+========================================= */
+
+.invitation {
+    background: #fffaf5;
+}
+
+.invitation h2,
+.details h2,
+.countdown-section h2 {
+    font-family: "Noto Naskh Arabic", serif;
+
+    font-size: clamp(25px, 7vw, 34px);
+
+    font-weight: 500;
+
+    color: #4f4037;
+
+    margin: 8px 0 25px;
+}
+
+.invitation-text {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: #77665c;
+
+    font-size: 15px;
+
+    line-height: 2.5;
+}
+
+.couple-names {
+    margin-top: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    font-family: "Noto Naskh Arabic", serif;
+
+    color: #665247;
+
+    font-size: 18px;
+}
+
+.couple-names small {
+    color: #a08774;
+    font-size: 17px;
+}
+
+
+/* =========================================
+   جزئیات
+========================================= */
+
+.details {
+    background: #f4ede5;
+}
+
+.details-grid {
+    margin: 35px auto 0;
+
+    max-width: 650px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.detail-card {
+    background: rgba(255, 252, 248, 0.8);
+
+    border: 1px solid rgba(126, 103, 87, 0.12);
+
+    border-radius: 18px;
+
+    padding: 25px 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 160px;
+
+    justify-content: center;
+}
+
+.detail-card-wide {
+    grid-column: 1 / -1;
+}
+
+.detail-icon {
+    font-size: 22px;
+
+    color: #987d69;
+
+    margin-bottom: 5px;
+}
+
+.detail-title {
+    font-size: 12px;
+
+    color: #9b8575;
+
+    margin-bottom: 6px;
+}
+
+.detail-card strong {
+    font-size: 14px;
+
+    color: #5b4a40;
+
+    font-weight: 500;
+}
+
+.map-button {
+    display: inline-block;
+
+    margin-top: 13px;
+
+    padding: 7px 17px;
+
+    border-radius: 20px;
+
+    border: 1px solid #b49b87;
+
+    color: #705d50;
+
+    font-size: 12px;
+
+    transition: all 0.25s ease;
+}
+
+.map-button:hover {
+    background: #705d50;
+    color: #fff;
+}
+
+
+/* =========================================
+   شمارش معکوس
+========================================= */
+
+.countdown-section {
+    background: #fffaf6;
+}
+
+.countdown {
+    margin: 35px auto 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    direction: ltr;
+
+    gap: 8px;
+}
+
+.count-box {
+    min-width: 70px;
 
     display: flex;
 
@@ -47,797 +442,252 @@ body {
     align-items: center;
 
     justify-content: center;
+}
 
-    text-align: center;
+.count-box span {
+    font-family: "Noto Naskh Arabic", serif;
 
-    padding: 25px;
+    font-size: 32px;
 
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
+    color: #5a493f;
 
+    line-height: 1.2;
+}
+
+.count-box small {
+    font-size: 11px;
+
+    color: #9a8272;
+
+    margin-top: 5px;
+}
+
+.count-separator {
+    font-size: 25px;
+
+    color: #b49a85;
+
+    padding-bottom: 20px;
 }
 
 
-.intro.hidden {
+/* =========================================
+   پایان
+========================================= */
 
-    opacity: 0;
+.closing {
+    background: #f1e8df;
 
-    visibility: hidden;
-
-}
-
-
-.envelope {
-
-    width: 180px;
-
-    height: 120px;
-
-    position: relative;
-
-    background: #fffdf8;
-
-    border:
-        1px solid
-        #b49a72;
-
-    box-shadow:
-        0 20px 50px
-        rgba(73,56,47,.10);
-
-    margin-bottom: 30px;
-
-}
-
-
-.envelope::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            transparent 49%,
-            #b49a72 50%,
-            transparent 51%
-        ),
-
-        linear-gradient(
-            225deg,
-            transparent 49%,
-            #b49a72 50%,
-            transparent 51%
-        );
-
-    opacity: .35;
-
-}
-
-
-.seal {
-
-    position: absolute;
-
-    z-index: 2;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform:
-        translate(-50%, -50%);
-
-    width: 62px;
-
-    height: 62px;
-
-    border-radius: 50%;
-
-    background: #59483d;
-
-    color: white;
+    min-height: 55vh;
 
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
 
     justify-content: center;
 
-    gap: 3px;
-
-    font-family:
-        "Noto Naskh Arabic";
-
+    align-items: center;
 }
 
+.closing-symbol {
+    font-size: 30px;
 
-.seal span {
+    color: #967866;
 
-    color: #d8c09a;
-
-    font-size: 13px;
-
+    margin-bottom: 20px;
 }
 
+.closing p {
+    color: #746258;
 
-.intro-kicker {
+    font-size: 14px;
 
-    font-size: 12px;
+    max-width: 420px;
 
-    color: #806c5b;
-
+    margin-bottom: 15px;
 }
 
+.closing h2 {
+    font-family: "Noto Naskh Arabic", serif;
 
-.intro h1 {
-
-    font-family:
-        "Noto Naskh Arabic";
-
-    font-size: 42px;
+    font-size: 35px;
 
     font-weight: 500;
 
-    margin: 5px 0 25px;
+    color: #4d3e35;
+}
 
+.closing-date {
+    margin-top: 5px;
+
+    color: #927b69;
+
+    font-size: 13px;
 }
 
 
-.intro h1 span {
+/* =========================================
+   Footer
+========================================= */
 
-    color: #b49a72;
+footer {
+    text-align: center;
 
-    font-size: 20px;
+    padding: 22px;
 
+    background: #4f4139;
+
+    color: #ded1c5;
+
+    font-size: 11px;
 }
 
 
-/* =========================
-   BUTTON
-========================= */
-
-.primary-button {
-
-    display: inline-block;
-
-    border: none;
-
-    text-decoration: none;
-
-    background: #59483d;
-
-    color: white;
-
-    padding:
-        12px
-        25px;
-
-    border-radius: 999px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 25px
-        rgba(73,56,47,.15);
-
-    transition:
-        transform .2s ease;
-
-}
-
-
-.primary-button:hover {
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-.intro small {
-
-    margin-top: 12px;
-
-    color: #806c5b;
-
-    font-size: 10px;
-
-}
-
-
-/* =========================
-   MUSIC
-========================= */
+/* =========================================
+   دکمه موسیقی
+========================================= */
 
 .music-button {
-
     position: fixed;
 
-    right: 18px;
-
+    left: 18px;
     bottom: 18px;
 
-    z-index: 90;
-
     width: 48px;
-
     height: 48px;
 
     border-radius: 50%;
 
-    border:
-        1px solid
-        #b49a72;
+    background: #665248;
 
-    background: #fffdf8;
-
-    color: #59483d;
-
-    cursor: pointer;
-
-    font-size: 20px;
-
-    box-shadow:
-        0 8px 25px
-        rgba(73,56,47,.18);
-
-}
-
-
-.music-button.playing {
-
-    animation:
-        musicPulse
-        1.7s
-        infinite;
-
-}
-
-
-@keyframes musicPulse {
-
-    50% {
-
-        transform:
-            scale(1.08);
-
-    }
-
-}
-
-
-/* =========================
-   WEBSITE
-========================= */
-
-.website {
-
-    max-width: 720px;
-
-    margin: auto;
-
-    overflow: hidden;
-
-}
-
-
-.section {
-
-    min-height: 70vh;
-
-    padding:
-        90px
-        25px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-
-    min-height: 100svh;
-
-    background:
-
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(255,255,255,.55),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(234,223,207,.55),
-            transparent 35%
-        );
-
-}
-
-
-.ornament {
-
-    color: #b49a72;
-
-    font-size: 40px;
-
-}
-
-
-.eyebrow {
-
-    color: #806c5b;
-
-    font-size: 12px;
-
-    letter-spacing: .08em;
-
-}
-
-
-.hero h2 {
-
-    font-family:
-        "Noto Naskh Arabic";
-
-    font-size: 58px;
-
-    font-weight: 500;
-
-    line-height: 1.15;
-
-}
-
-
-.hero h2 span {
-
-    color: #b49a72;
-
-    font-size: .45em;
-
-}
-
-
-.gold-line {
-
-    width: 80px;
-
-    height: 1px;
-
-    background: #b49a72;
-
-    margin: 10px 0 20px;
-
-}
-
-
-.date {
+    color: #fffaf6;
 
     font-size: 21px;
 
-}
+    cursor: pointer;
 
+    z-index: 100;
 
-.quote {
-
-    font-family:
-        "Noto Naskh Arabic";
-
-    color: #806c5b;
-
-    font-size: 18px;
-
-}
-
-
-/* =========================
-   PAPER
-========================= */
-
-.paper {
-
-    background: #fffdf8;
-
-    margin:
-        0 14px;
-
-    min-height: 55vh;
-
-    border:
-        1px solid
-        #e9dfd1;
-
-    box-shadow:
-        0 20px 60px
-        rgba(73,56,47,.05);
-
-}
-
-
-.paper h3 {
-
-    font-family:
-        "Noto Naskh Arabic";
-
-    font-size: 25px;
-
-    font-weight: 500;
-
-}
-
-
-.names {
-
-    font-family:
-        "Noto Naskh Arabic";
-
-    font-size: 23px;
-
-}
-
-
-.names span {
-
-    color: #b49a72;
-
-}
-
-
-/* =========================
-   DETAILS
-========================= */
-
-.details {
-
-    min-height: auto;
-
-}
-
-
-.details-card {
-
-    width: 100%;
-
-    max-width: 520px;
-
-    background: #fffdf8;
-
-    border:
-        1px solid
-        #e9dfd1;
-
-    padding:
-        10px 20px;
-
-    margin:
-        20px 0 25px;
-
-}
-
-
-.details-card div {
-
-    padding:
-        17px 0;
-
-    border-bottom:
-        1px solid
-        #eee6dc;
-
-}
-
-
-.details-card div:last-child {
-
-    border: none;
-
-}
-
-
-.details-card span {
-
-    display: block;
-
-    color: #806c5b;
-
-    font-size: 11px;
-
-}
-
-
-.details-card strong {
-
-    display: block;
-
-    font-size: 15px;
-
-    font-weight: 500;
-
-}
-
-
-/* =========================
-   COUNTDOWN
-========================= */
-
-.countdown-section {
-
-    min-height: 45vh;
-
-}
-
-
-.countdown {
-
-    width: 100%;
-
-    max-width: 520px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 8px;
-
-}
-
-
-.countdown div {
-
-    background: #fffdf8;
-
-    border:
-        1px solid
-        #e9dfd1;
-
-    padding: 14px 4px;
-
-}
-
-
-.countdown strong {
-
-    display: block;
-
-    font-size: 25px;
-
-    font-weight: 500;
-
-}
-
-
-.countdown span {
-
-    color: #806c5b;
-
-    font-size: 10px;
-
-}
-
-
-/* =========================
-   GUESTBOOK
-========================= */
-
-.guestbook {
-
-    min-height: auto;
-
-    background: #59483d;
-
-    color: #fffaf3;
-
-}
-
-
-.guestbook .eyebrow {
-
-    color: #dccfc1;
-
-}
-
-
-.guestbook-description {
-
-    color: #dccfc1;
-
-    font-size: 13px;
-
-}
-
-
-.guest-form {
-
-    width: 100%;
-
-    max-width: 560px;
-
-    display: grid;
-
-    gap: 10px;
-
-    margin:
-        20px 0 30px;
-
-}
-
-
-.guest-form input,
-.guest-form textarea {
-
-    width: 100%;
-
-    border: none;
-
-    outline: none;
-
-    background: #fffaf3;
-
-    color: #49382f;
-
-    padding:
-        13px 15px;
-
-    border-radius: 12px;
-
-}
-
-
-.guest-form textarea {
-
-    min-height: 110px;
-
-    resize: vertical;
-
-}
-
-
-.messages {
-
-    width: 100%;
-
-    max-width: 560px;
-
-    display: grid;
-
-    gap: 12px;
-
-}
-
-
-.message {
-
-    background: #fffaf3;
-
-    color: #49382f;
-
-    border-radius: 15px;
-
-    padding: 15px 17px;
-
-    text-align: right;
-
-}
-
-
-.message-header {
+    box-shadow: 0 5px 20px rgba(50, 35, 28, 0.22);
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
 
+    justify-content: center;
+
+    transition: transform 0.25s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.06);
+}
+
+.music-button.playing {
+    animation: musicPulse 1.5s infinite;
 }
 
 
-.message strong {
+/* =========================================
+   انیمیشن‌ها
+========================================= */
 
-    font-size: 14px;
+@keyframes fadeUp {
 
-}
-
-
-.message time {
-
-    font-size: 10px;
-
-    color: #9b8978;
-
-}
-
-
-.message p {
-
-    margin:
-        7px 0 0;
-
-    font-size: 13px;
-
-}
-
-
-.form-status {
-
-    min-height: 20px;
-
-    font-size: 12px;
-
-}
-
-
-/* =========================
-   CLOSING
-========================= */
-
-.closing {
-
-    min-height: 55vh;
-
-}
-
-
-.closing h3 {
-
-    font-family:
-        "Noto Naskh Arabic";
-
-    font-weight: 500;
-
-    font-size: 26px;
-
-}
-
-
-footer {
-
-    text-align: center;
-
-    padding: 25px;
-
-    color: #806c5b;
-
-    font-size: 11px;
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 500px) {
-
-    .hero h2 {
-
-        font-size: 52px;
-
+    from {
+        opacity: 0;
+        transform: translateY(18px);
     }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes musicPulse {
+
+    0% {
+        box-shadow:
+            0 5px 20px rgba(50, 35, 28, 0.22);
+    }
+
+    50% {
+        box-shadow:
+            0 5px 28px rgba(50, 35, 28, 0.38);
+    }
+
+    100% {
+        box-shadow:
+            0 5px 20px rgba(50, 35, 28, 0.22);
+    }
+
+}
+
+
+/* =========================================
+   موبایل
+========================================= */
+
+@media (max-width: 520px) {
+
     .section {
+        padding: 70px 18px;
+    }
 
-        padding:
-            75px 20px;
+    .hero {
+        min-height: 85svh;
+    }
 
+    .details-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .detail-card {
+        min-height: 150px;
+        padding: 20px 10px;
+    }
+
+    .detail-card-wide {
+        grid-column: 1 / -1;
+    }
+
+    .detail-card strong {
+        font-size: 13px;
+    }
+
+    .countdown {
+        gap: 2px;
+    }
+
+    .count-box {
+        min-width: 57px;
+    }
+
+    .count-box span {
+        font-size: 27px;
+    }
+
+    .count-separator {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 350px) {
+
+    .count-box {
+        min-width: 50px;
+    }
+
+    .count-box span {
+        font-size: 24px;
+    }
+
+    .count-box small {
+        font-size: 10px;
     }
 
 }
