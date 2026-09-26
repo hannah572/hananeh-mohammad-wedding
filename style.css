@@ -1,0 +1,843 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: #f7f1e7;
+
+    color: #49382f;
+
+    font-family:
+        Estedad,
+        "Noto Naskh Arabic",
+        sans-serif;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background: #f7f1e7;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 25px;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+}
+
+
+.intro.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+
+.envelope {
+
+    width: 180px;
+
+    height: 120px;
+
+    position: relative;
+
+    background: #fffdf8;
+
+    border:
+        1px solid
+        #b49a72;
+
+    box-shadow:
+        0 20px 50px
+        rgba(73,56,47,.10);
+
+    margin-bottom: 30px;
+
+}
+
+
+.envelope::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            transparent 49%,
+            #b49a72 50%,
+            transparent 51%
+        ),
+
+        linear-gradient(
+            225deg,
+            transparent 49%,
+            #b49a72 50%,
+            transparent 51%
+        );
+
+    opacity: .35;
+
+}
+
+
+.seal {
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 62px;
+
+    height: 62px;
+
+    border-radius: 50%;
+
+    background: #59483d;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    font-family:
+        "Noto Naskh Arabic";
+
+}
+
+
+.seal span {
+
+    color: #d8c09a;
+
+    font-size: 13px;
+
+}
+
+
+.intro-kicker {
+
+    font-size: 12px;
+
+    color: #806c5b;
+
+}
+
+
+.intro h1 {
+
+    font-family:
+        "Noto Naskh Arabic";
+
+    font-size: 42px;
+
+    font-weight: 500;
+
+    margin: 5px 0 25px;
+
+}
+
+
+.intro h1 span {
+
+    color: #b49a72;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary-button {
+
+    display: inline-block;
+
+    border: none;
+
+    text-decoration: none;
+
+    background: #59483d;
+
+    color: white;
+
+    padding:
+        12px
+        25px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(73,56,47,.15);
+
+    transition:
+        transform .2s ease;
+
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.intro small {
+
+    margin-top: 12px;
+
+    color: #806c5b;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-button {
+
+    position: fixed;
+
+    right: 18px;
+
+    bottom: 18px;
+
+    z-index: 90;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        #b49a72;
+
+    background: #fffdf8;
+
+    color: #59483d;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(73,56,47,.18);
+
+}
+
+
+.music-button.playing {
+
+    animation:
+        musicPulse
+        1.7s
+        infinite;
+
+}
+
+
+@keyframes musicPulse {
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+    }
+
+}
+
+
+/* =========================
+   WEBSITE
+========================= */
+
+.website {
+
+    max-width: 720px;
+
+    margin: auto;
+
+    overflow: hidden;
+
+}
+
+
+.section {
+
+    min-height: 70vh;
+
+    padding:
+        90px
+        25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100svh;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.55),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(234,223,207,.55),
+            transparent 35%
+        );
+
+}
+
+
+.ornament {
+
+    color: #b49a72;
+
+    font-size: 40px;
+
+}
+
+
+.eyebrow {
+
+    color: #806c5b;
+
+    font-size: 12px;
+
+    letter-spacing: .08em;
+
+}
+
+
+.hero h2 {
+
+    font-family:
+        "Noto Naskh Arabic";
+
+    font-size: 58px;
+
+    font-weight: 500;
+
+    line-height: 1.15;
+
+}
+
+
+.hero h2 span {
+
+    color: #b49a72;
+
+    font-size: .45em;
+
+}
+
+
+.gold-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: #b49a72;
+
+    margin: 10px 0 20px;
+
+}
+
+
+.date {
+
+    font-size: 21px;
+
+}
+
+
+.quote {
+
+    font-family:
+        "Noto Naskh Arabic";
+
+    color: #806c5b;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================
+   PAPER
+========================= */
+
+.paper {
+
+    background: #fffdf8;
+
+    margin:
+        0 14px;
+
+    min-height: 55vh;
+
+    border:
+        1px solid
+        #e9dfd1;
+
+    box-shadow:
+        0 20px 60px
+        rgba(73,56,47,.05);
+
+}
+
+
+.paper h3 {
+
+    font-family:
+        "Noto Naskh Arabic";
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+}
+
+
+.names {
+
+    font-family:
+        "Noto Naskh Arabic";
+
+    font-size: 23px;
+
+}
+
+
+.names span {
+
+    color: #b49a72;
+
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.details {
+
+    min-height: auto;
+
+}
+
+
+.details-card {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    background: #fffdf8;
+
+    border:
+        1px solid
+        #e9dfd1;
+
+    padding:
+        10px 20px;
+
+    margin:
+        20px 0 25px;
+
+}
+
+
+.details-card div {
+
+    padding:
+        17px 0;
+
+    border-bottom:
+        1px solid
+        #eee6dc;
+
+}
+
+
+.details-card div:last-child {
+
+    border: none;
+
+}
+
+
+.details-card span {
+
+    display: block;
+
+    color: #806c5b;
+
+    font-size: 11px;
+
+}
+
+
+.details-card strong {
+
+    display: block;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section {
+
+    min-height: 45vh;
+
+}
+
+
+.countdown {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+}
+
+
+.countdown div {
+
+    background: #fffdf8;
+
+    border:
+        1px solid
+        #e9dfd1;
+
+    padding: 14px 4px;
+
+}
+
+
+.countdown strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+}
+
+
+.countdown span {
+
+    color: #806c5b;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================
+   GUESTBOOK
+========================= */
+
+.guestbook {
+
+    min-height: auto;
+
+    background: #59483d;
+
+    color: #fffaf3;
+
+}
+
+
+.guestbook .eyebrow {
+
+    color: #dccfc1;
+
+}
+
+
+.guestbook-description {
+
+    color: #dccfc1;
+
+    font-size: 13px;
+
+}
+
+
+.guest-form {
+
+    width: 100%;
+
+    max-width: 560px;
+
+    display: grid;
+
+    gap: 10px;
+
+    margin:
+        20px 0 30px;
+
+}
+
+
+.guest-form input,
+.guest-form textarea {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: #fffaf3;
+
+    color: #49382f;
+
+    padding:
+        13px 15px;
+
+    border-radius: 12px;
+
+}
+
+
+.guest-form textarea {
+
+    min-height: 110px;
+
+    resize: vertical;
+
+}
+
+
+.messages {
+
+    width: 100%;
+
+    max-width: 560px;
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+
+.message {
+
+    background: #fffaf3;
+
+    color: #49382f;
+
+    border-radius: 15px;
+
+    padding: 15px 17px;
+
+    text-align: right;
+
+}
+
+
+.message-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.message strong {
+
+    font-size: 14px;
+
+}
+
+
+.message time {
+
+    font-size: 10px;
+
+    color: #9b8978;
+
+}
+
+
+.message p {
+
+    margin:
+        7px 0 0;
+
+    font-size: 13px;
+
+}
+
+
+.form-status {
+
+    min-height: 20px;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing {
+
+    min-height: 55vh;
+
+}
+
+
+.closing h3 {
+
+    font-family:
+        "Noto Naskh Arabic";
+
+    font-weight: 500;
+
+    font-size: 26px;
+
+}
+
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #806c5b;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .hero h2 {
+
+        font-size: 52px;
+
+    }
+
+    .section {
+
+        padding:
+            75px 20px;
+
+    }
+
+}
