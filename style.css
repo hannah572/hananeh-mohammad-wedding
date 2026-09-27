@@ -1,5 +1,5 @@
 /* =========================================
-   تنظیمات پایه
+   RESET
 ========================================= */
 
 * {
@@ -21,22 +21,18 @@ body {
         Arial,
         sans-serif;
 
-    background: #fff8fc;
-
-    color: #5c4655;
+    color: #604653;
 
     line-height: 1.9;
 
     overflow-x: hidden;
+
+    background: #fff;
 }
 
 button,
 a {
     font-family: inherit;
-}
-
-button {
-    border: none;
 }
 
 a {
@@ -45,30 +41,8 @@ a {
 
 
 /* =========================================
-   فونت تیترها و نوشته‌های شاعرانه
-========================================= */
-
-.intro-small,
-.intro-symbol,
-.intro h1,
-.hero h1,
-.hero-poem,
-.invitation h2,
-.details h2,
-.countdown-section h2,
-.couple-names,
-.closing h2,
-.count-box span {
-    font-family:
-        "Vazirmatn",
-        Tahoma,
-        Arial,
-        sans-serif;
-}
-
-
-/* =========================================
-   بک‌گراند کلی سایت
+   BACKGROUND
+   عکس باید کاملاً قابل مشاهده باشد
 ========================================= */
 
 .site-background {
@@ -87,40 +61,41 @@ a {
 }
 
 
-/* -----------------------------------------
-   تصویر اصلی
------------------------------------------ */
+/* عکس اصلی */
 
 .background-image {
     position: absolute;
 
-    inset: -12px;
+    inset: -5px;
 
     background-image:
         url("assets/background.jpg");
 
     background-size: cover;
 
-    background-position: center;
+    background-position: center center;
 
     background-repeat: no-repeat;
 
     /*
-       فقط کمی محو شده.
-       خود عکس باید کاملاً قابل تشخیص باشد.
+       این بار عکس تقریباً بدون محوشدگی است
     */
 
-    filter: blur(2px);
+    filter: blur(0.8px);
 
-    transform: scale(1.025);
+    transform: scale(1.015);
 
-    opacity: 0.72;
+    /*
+       عکس کاملاً مشخص باشد
+    */
+
+    opacity: 0.92;
 }
 
 
-/* -----------------------------------------
-   لایه سفید / صورتی روی عکس
------------------------------------------ */
+/*
+   فقط یک لایه خیلی خیلی سبک روی عکس
+*/
 
 .background-overlay {
     position: absolute;
@@ -130,17 +105,16 @@ a {
     background:
         linear-gradient(
             135deg,
-            rgba(255, 248, 252, 0.38),
-            rgba(249, 243, 253, 0.28)
+            rgba(255, 247, 252, 0.14),
+            rgba(247, 240, 252, 0.10)
         );
-
-    mix-blend-mode: normal;
 }
 
 
-/* -----------------------------------------
-   نورهای صورتی و یاسی بسیار ظریف
------------------------------------------ */
+/*
+   نورهای تزئینی بسیار ملایم
+   نباید عکس را بپوشانند
+*/
 
 .background-blur {
     position: absolute;
@@ -149,21 +123,21 @@ a {
 
     background:
         radial-gradient(
-            circle at 15% 15%,
-            rgba(255, 185, 216, 0.12),
-            transparent 32%
+            circle at 10% 15%,
+            rgba(255, 180, 215, 0.08),
+            transparent 28%
         ),
 
         radial-gradient(
-            circle at 85% 25%,
-            rgba(198, 177, 239, 0.10),
-            transparent 32%
+            circle at 90% 30%,
+            rgba(190, 165, 235, 0.07),
+            transparent 28%
         ),
 
         radial-gradient(
             circle at 50% 90%,
-            rgba(255, 210, 231, 0.10),
-            transparent 35%
+            rgba(255, 200, 225, 0.06),
+            transparent 30%
         );
 }
 
@@ -181,7 +155,8 @@ a {
     border-radius: 50%;
 
     border:
-        1px solid rgba(207, 139, 181, 0.12);
+        1px solid
+        rgba(180, 115, 155, 0.13);
 
     pointer-events: none;
 
@@ -214,7 +189,7 @@ a {
     height: 25px;
 
     border-color:
-        rgba(176, 148, 216, 0.20);
+        rgba(170, 140, 215, 0.20);
 
     animation:
         tinyFloat 6s ease-in-out infinite;
@@ -222,7 +197,7 @@ a {
 
 
 /* =========================================
-   صفحه آغازین
+   INTRO
 ========================================= */
 
 .intro {
@@ -241,43 +216,42 @@ a {
 
     overflow: hidden;
 
+    /*
+       شفاف!
+       عکس پس‌زمینه باید دیده شود.
+    */
+
     background:
-        linear-gradient(
-            135deg,
-            rgba(255, 247, 252, 0.48),
-            rgba(249, 242, 253, 0.40)
-        );
+        rgba(255, 250, 253, 0.12);
 }
 
 
-/* دایره نور صورتی */
+/* نورهای بسیار سبک */
 
 .intro::before {
     content: "";
 
     position: absolute;
 
-    width: 420px;
-    height: 420px;
+    width: 400px;
+    height: 400px;
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(242, 172, 208, 0.18),
+            rgba(255, 190, 220, 0.12),
             transparent 68%
         );
 
     top: -170px;
-    right: -160px;
+    right: -150px;
 
     animation:
         softFloat 8s ease-in-out infinite;
 }
 
-
-/* دایره نور یاسی */
 
 .intro::after {
     content: "";
@@ -292,7 +266,7 @@ a {
     background:
         radial-gradient(
             circle,
-            rgba(193, 172, 235, 0.17),
+            rgba(195, 175, 235, 0.10),
             transparent 68%
         );
 
@@ -304,32 +278,8 @@ a {
 }
 
 
-/* نور پشت کارت */
-
-.intro-glow {
-    position: absolute;
-
-    width: 280px;
-    height: 280px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.75),
-            transparent 70%
-        );
-
-    filter: blur(4px);
-
-    animation:
-        glowBreath 5s ease-in-out infinite;
-}
-
-
 /* =========================================
-   کارت صفحه آغازین
+   INTRO CARD
 ========================================= */
 
 .intro-content {
@@ -342,45 +292,47 @@ a {
     z-index: 2;
 
     padding:
-        42px
-        25px;
+        42px 25px;
 
     border-radius: 35px;
 
+    /*
+       کارت فقط کمی سفید است،
+       نه کاملاً مات
+    */
+
     background:
-        rgba(255, 255, 255, 0.52);
+        rgba(255, 255, 255, 0.48);
 
     border:
-        1px solid rgba(255, 255, 255, 0.72);
+        1px solid
+        rgba(255, 255, 255, 0.72);
 
     box-shadow:
-        0 25px 80px
-        rgba(151, 91, 128, 0.12),
+        0 25px 70px
+        rgba(130, 75, 110, 0.13);
 
-        inset 0 1px 0
-        rgba(255, 255, 255, 0.80);
+    backdrop-filter:
+        blur(4px);
 
-    backdrop-filter: blur(8px);
-
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter:
+        blur(4px);
 
     animation:
-        fadeUp 1.2s ease both,
-
-        cardAppear 1.4s ease both;
+        cardAppear 1.3s ease both;
 }
 
 
 /* =========================================
-   نوشته‌های Intro
+   INTRO TEXT
 ========================================= */
 
 .intro-small {
     font-size: 17px;
 
-    color: #9b718c;
+    color: #95677f;
 
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 
     animation:
         fadeUp 1s 0.15s ease both;
@@ -390,7 +342,7 @@ a {
 .intro-symbol {
     font-size: 34px;
 
-    color: #9b6687;
+    color: #9d6385;
 
     letter-spacing: 7px;
 
@@ -404,9 +356,7 @@ a {
 .intro-symbol span {
     font-size: 22px;
 
-    margin: 0 3px;
-
-    color: #c98caf;
+    color: #c982a6;
 
     display: inline-block;
 
@@ -417,21 +367,17 @@ a {
 
 .intro h1 {
     font-size:
-        clamp(
-            42px,
-            12vw,
-            70px
-        );
+        clamp(42px, 12vw, 70px);
 
     font-weight: 500;
 
-    color: #604454;
+    color: #5f4050;
 
     line-height: 1.4;
 
     text-shadow:
-        0 4px 20px
-        rgba(190, 135, 168, 0.12);
+        0 3px 15px
+        rgba(255, 255, 255, 0.45);
 
     animation:
         fadeUp 1s 0.45s ease both;
@@ -447,13 +393,12 @@ a {
         linear-gradient(
             to right,
             transparent,
-            #d39bb9,
+            #c987a9,
             transparent
         );
 
     margin:
-        22px
-        auto;
+        22px auto;
 
     animation:
         lineGrow 1.2s 0.6s ease both;
@@ -461,7 +406,7 @@ a {
 
 
 .intro p {
-    color: #896c7d;
+    color: #795c6d;
 
     font-size: 14px;
 
@@ -473,7 +418,7 @@ a {
 
 
 /* =========================================
-   دکمه مشاهده دعوت‌نامه
+   MAIN BUTTON
 ========================================= */
 
 .main-button {
@@ -484,20 +429,17 @@ a {
     align-items: center;
     justify-content: center;
 
-    gap: 9px;
-
     background:
         linear-gradient(
             135deg,
-            #b9789c,
-            #9c739f
+            #bd769c,
+            #9d75a6
         );
 
     color: #fff;
 
     padding:
-        14px
-        29px;
+        14px 29px;
 
     border-radius: 30px;
 
@@ -506,13 +448,12 @@ a {
     cursor: pointer;
 
     box-shadow:
-        0 10px 30px
-        rgba(166, 104, 141, 0.25);
+        0 10px 28px
+        rgba(160, 92, 132, 0.27);
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease,
-        filter 0.3s ease;
+        box-shadow 0.3s ease;
 
     overflow: hidden;
 
@@ -520,8 +461,6 @@ a {
         fadeUp 1s 0.8s ease both;
 }
 
-
-/* نور متحرک روی دکمه */
 
 .main-button::before {
     content: "";
@@ -561,33 +500,12 @@ a {
 
     box-shadow:
         0 15px 35px
-        rgba(166, 104, 141, 0.32);
-
-    filter:
-        brightness(1.04);
-}
-
-
-.main-button:active {
-    transform:
-        translateY(0);
-}
-
-
-.button-arrow {
-    font-size: 16px;
-
-    transform:
-        translateY(-1px);
-
-    animation:
-        arrowFloat 1.6s
-        ease-in-out infinite;
+        rgba(160, 92, 132, 0.35);
 }
 
 
 /* =========================================
-   محتوای اصلی
+   MAIN
 ========================================= */
 
 .main-content {
@@ -604,28 +522,33 @@ a {
 }
 
 
+/* =========================================
+   SECTIONS
+========================================= */
+
 .section {
     padding:
-        85px
-        22px;
+        85px 22px;
 
     text-align: center;
 
     position: relative;
 
     overflow: hidden;
-}
 
+    /*
+       بسیار مهم:
+       سکشن‌ها دیگر پس‌زمینه سفید ندارند.
+       بنابراین عکس پشت همه آنها دیده می‌شود.
+    */
 
-.section-inner {
-    position: relative;
-
-    z-index: 2;
+    background:
+        rgba(255, 255, 255, 0.06);
 }
 
 
 /* =========================================
-   Hero
+   HERO
 ========================================= */
 
 .hero {
@@ -640,15 +563,11 @@ a {
     align-items: center;
 
     background:
-        linear-gradient(
-            to bottom,
-            rgba(255, 249, 253, 0.45),
-            rgba(250, 244, 253, 0.40)
-        );
+        rgba(255, 250, 253, 0.08);
 
     border-bottom:
         1px solid
-        rgba(205, 157, 187, 0.12);
+        rgba(190, 130, 165, 0.12);
 }
 
 
@@ -665,16 +584,15 @@ a {
     background:
         radial-gradient(
             circle,
-            rgba(255, 186, 215, 0.20),
-            transparent 68%
+            rgba(255, 185, 215, 0.10),
+            transparent 70%
         );
 
     top: -130px;
     left: -120px;
 
     animation:
-        softFloat 9s
-        ease-in-out infinite;
+        softFloat 9s ease-in-out infinite;
 }
 
 
@@ -691,51 +609,20 @@ a {
     background:
         radial-gradient(
             circle,
-            rgba(202, 182, 239, 0.17),
-            transparent 68%
+            rgba(195, 175, 235, 0.09),
+            transparent 70%
         );
 
     bottom: -120px;
     right: -110px;
 
     animation:
-        softFloat 11s
-        ease-in-out infinite reverse;
-}
-
-
-/* دایره‌های تزئینی */
-
-.hero-orbit {
-    position: absolute;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(185, 128, 163, 0.10);
-
-    pointer-events: none;
-}
-
-
-.orbit-one {
-    width: 380px;
-    height: 380px;
-}
-
-
-.orbit-two {
-    width: 470px;
-    height: 470px;
-
-    border-color:
-        rgba(174, 150, 214, 0.07);
+        softFloat 11s ease-in-out infinite reverse;
 }
 
 
 /* =========================================
-   خطوط تزئینی
+   DECORATIVE LINE
 ========================================= */
 
 .decorative-line {
@@ -747,13 +634,12 @@ a {
         linear-gradient(
             to right,
             transparent,
-            #c28ba9,
+            #c486a7,
             transparent
         );
 
     margin:
-        20px
-        auto;
+        20px auto;
 
     animation:
         lineGrow 1.3s ease both;
@@ -761,12 +647,12 @@ a {
 
 
 /* =========================================
-   متن‌های کوچک
+   LABELS
 ========================================= */
 
 .eyebrow,
 .section-label {
-    color: #a1728d;
+    color: #9b6d86;
 
     font-size: 13px;
 
@@ -775,7 +661,7 @@ a {
 
 
 /* =========================================
-   عنوان Hero
+   HERO TITLE
 ========================================= */
 
 .hero h1 {
@@ -788,17 +674,16 @@ a {
 
     font-weight: 500;
 
-    color: #654957;
+    color: #604252;
 
     line-height: 1.45;
 
     margin:
-        15px
-        0;
+        15px 0;
 
     text-shadow:
-        0 5px 25px
-        rgba(172, 111, 149, 0.12);
+        0 3px 18px
+        rgba(255, 255, 255, 0.55);
 
     animation:
         heroTitle 1.2s 0.2s ease both;
@@ -810,11 +695,10 @@ a {
 
     font-size: 30px;
 
-    color: #a983b2;
+    color: #9c78a9;
 
     margin:
-        0
-        7px;
+        0 7px;
 
     animation:
         heartBeat 2.8s
@@ -825,9 +709,7 @@ a {
 .hero-date {
     font-size: 16px;
 
-    color: #856477;
-
-    margin-top: 3px;
+    color: #795c6d;
 
     animation:
         fadeUp 1s 0.4s ease both;
@@ -837,11 +719,15 @@ a {
 .hero-poem {
     font-size: 19px;
 
-    color: #745c6b;
+    color: #705665;
 
     margin-top: 35px;
 
     max-width: 450px;
+
+    text-shadow:
+        0 2px 10px
+        rgba(255,255,255,0.45);
 
     animation:
         fadeUp 1s 0.55s ease both;
@@ -849,111 +735,20 @@ a {
 
 
 /* =========================================
-   اسکرول پایین Hero
-========================================= */
-
-.scroll-hint {
-    margin-top: 35px;
-
-    width: 32px;
-    height: 45px;
-
-    border:
-        1px solid
-        rgba(174, 126, 155, 0.30);
-
-    border-radius: 20px;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: flex-start;
-
-    padding-top: 7px;
-
-    color: #a87995;
-
-    animation:
-        fadeUp 1s 0.8s ease both;
-}
-
-
-.scroll-hint span {
-    animation:
-        scrollArrow 1.8s
-        ease-in-out infinite;
-}
-
-
-/* =========================================
-   تزئین عنوان بخش‌ها
-========================================= */
-
-.title-flourish {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    margin:
-        -7px
-        auto
-        22px;
-}
-
-
-.title-flourish span {
-    display: block;
-
-    width: 35px;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(189, 133, 163, 0.65)
-        );
-}
-
-
-.title-flourish span:last-child {
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            rgba(189, 133, 163, 0.65)
-        );
-}
-
-
-.title-flourish i {
-    font-style: normal;
-
-    color: #c187a8;
-
-    font-size: 13px;
-
-    animation:
-        heartBeat 2.4s
-        ease-in-out infinite;
-}
-
-
-/* =========================================
-   متن دعوت
+   INVITATION
 ========================================= */
 
 .invitation {
+    /*
+       تقریباً شفاف
+    */
+
     background:
-        rgba(255, 250, 253, 0.58);
+        rgba(255, 250, 253, 0.18);
 
     border-bottom:
         1px solid
-        rgba(207, 159, 188, 0.12);
+        rgba(195, 140, 170, 0.12);
 }
 
 
@@ -969,12 +764,14 @@ a {
 
     font-weight: 500;
 
-    color: #634a58;
+    color: #604653;
 
     margin:
-        8px
-        0
-        25px;
+        8px 0 25px;
+
+    text-shadow:
+        0 2px 12px
+        rgba(255,255,255,0.5);
 }
 
 
@@ -983,11 +780,15 @@ a {
 
     margin: 0 auto;
 
-    color: #7d6674;
+    color: #705c69;
 
     font-size: 15px;
 
     line-height: 2.5;
+
+    text-shadow:
+        0 2px 10px
+        rgba(255,255,255,0.45);
 }
 
 
@@ -1003,56 +804,56 @@ a {
 
     flex-wrap: wrap;
 
-    color: #705564;
+    color: #6c5060;
 
     font-size: 18px;
 }
 
 
 .couple-names small {
-    color: #b084a1;
+    color: #ad7999;
 
     font-size: 17px;
 }
 
 
 /* =========================================
-   جزئیات مراسم
+   DETAILS
 ========================================= */
 
 .details {
+    /*
+       این بخش هم شفاف است.
+    */
+
     background:
-        linear-gradient(
-            135deg,
-            rgba(249, 237, 246, 0.68),
-            rgba(241, 237, 250, 0.62)
-        );
+        rgba(246, 233, 243, 0.20);
 }
 
 
 .details-grid {
     margin:
-        35px
-        auto
-        0;
+        35px auto 0;
 
     max-width: 650px;
 
     display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
+        repeat(2, 1fr);
 
     gap: 15px;
 }
 
 
 .detail-card {
+    /*
+       کارت‌ها سفید هستند،
+       ولی خود عکس بیرون کارت دیده می‌شود.
+    */
+
     background:
-        rgba(255, 255, 255, 0.55);
+        rgba(255, 255, 255, 0.58);
 
     border:
         1px solid
@@ -1061,8 +862,7 @@ a {
     border-radius: 22px;
 
     padding:
-        25px
-        15px;
+        25px 15px;
 
     display: flex;
 
@@ -1076,18 +876,17 @@ a {
 
     box-shadow:
         0 12px 35px
-        rgba(143, 101, 128, 0.07);
+        rgba(120, 75, 105, 0.08);
 
     backdrop-filter:
-        blur(8px);
+        blur(3px);
 
     -webkit-backdrop-filter:
-        blur(8px);
+        blur(3px);
 
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+        box-shadow 0.35s ease;
 }
 
 
@@ -1097,10 +896,7 @@ a {
 
     box-shadow:
         0 18px 42px
-        rgba(143, 101, 128, 0.12);
-
-    border-color:
-        rgba(206, 151, 181, 0.35);
+        rgba(120, 75, 105, 0.14);
 }
 
 
@@ -1113,26 +909,16 @@ a {
 .detail-icon {
     font-size: 22px;
 
-    color: #b07c9b;
+    color: #ad7697;
 
     margin-bottom: 5px;
-
-    transition:
-        transform 0.3s ease;
-}
-
-
-.detail-card:hover .detail-icon {
-    transform:
-        scale(1.15)
-        rotate(-5deg);
 }
 
 
 .detail-title {
     font-size: 12px;
 
-    color: #aa8199;
+    color: #a47b92;
 
     margin-bottom: 6px;
 }
@@ -1141,14 +927,14 @@ a {
 .detail-card strong {
     font-size: 14px;
 
-    color: #695260;
+    color: #654d5b;
 
     font-weight: 500;
 }
 
 
 /* =========================================
-   دکمه Google Maps
+   MAP
 ========================================= */
 
 .map-button {
@@ -1156,26 +942,23 @@ a {
 
     align-items: center;
 
-    gap: 7px;
-
     margin-top: 13px;
 
     padding:
-        7px
-        17px;
+        7px 17px;
 
     border-radius: 20px;
 
     border:
         1px solid
-        rgba(181, 130, 157, 0.50);
+        rgba(177, 123, 153, 0.50);
 
-    color: #88617a;
+    color: #835f75;
 
     font-size: 12px;
 
     background:
-        rgba(255, 255, 255, 0.30);
+        rgba(255, 255, 255, 0.40);
 
     transition:
         all 0.3s ease;
@@ -1186,12 +969,9 @@ a {
     background:
         linear-gradient(
             135deg,
-            #b97d9d,
-            #9c7ca9
+            #b9789c,
+            #9c79a8
         );
-
-    border-color:
-        transparent;
 
     color: #fff;
 
@@ -1201,20 +981,18 @@ a {
 
 
 /* =========================================
-   شمارش معکوس
+   COUNTDOWN
 ========================================= */
 
 .countdown-section {
     background:
-        rgba(255, 250, 253, 0.62);
+        rgba(255, 250, 253, 0.16);
 }
 
 
 .countdown {
     margin:
-        35px
-        auto
-        0;
+        35px auto 0;
 
     display: flex;
 
@@ -1238,17 +1016,22 @@ a {
     justify-content: center;
 
     padding:
-        10px
-        6px;
+        10px 6px;
 
     border-radius: 18px;
 
     background:
-        rgba(255, 255, 255, 0.48);
+        rgba(255, 255, 255, 0.60);
 
     border:
         1px solid
-        rgba(210, 163, 191, 0.18);
+        rgba(255, 255, 255, 0.75);
+
+    backdrop-filter:
+        blur(3px);
+
+    -webkit-backdrop-filter:
+        blur(3px);
 
     transition:
         transform 0.3s ease;
@@ -1264,7 +1047,7 @@ a {
 .count-box span {
     font-size: 32px;
 
-    color: #765365;
+    color: #715161;
 
     line-height: 1.2;
 }
@@ -1273,7 +1056,7 @@ a {
 .count-box small {
     font-size: 11px;
 
-    color: #aa8498;
+    color: #a47b91;
 
     margin-top: 5px;
 }
@@ -1282,24 +1065,17 @@ a {
 .count-separator {
     font-size: 25px;
 
-    color: #bd91a9;
+    color: #b986a1;
 
     padding-bottom: 20px;
 }
 
 
 /* =========================================
-   پایان
+   CLOSING
 ========================================= */
 
 .closing {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(247, 232, 242, 0.70),
-            rgba(238, 233, 248, 0.68)
-        );
-
     min-height: 55vh;
 
     display: flex;
@@ -1309,36 +1085,20 @@ a {
     justify-content: center;
 
     align-items: center;
-}
 
-
-.closing-glow {
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 50%;
+    /*
+       شفاف تا عکس کاملاً مشخص بماند
+    */
 
     background:
-        radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.55),
-            transparent 68%
-        );
-
-    animation:
-        glowBreath 5s
-        ease-in-out infinite;
+        rgba(242, 229, 241, 0.25);
 }
 
 
 .closing-symbol {
-    position: relative;
-
     font-size: 30px;
 
-    color: #b67e9d;
+    color: #b27899;
 
     margin-bottom: 20px;
 
@@ -1349,9 +1109,7 @@ a {
 
 
 .closing p {
-    position: relative;
-
-    color: #796272;
+    color: #705b68;
 
     font-size: 14px;
 
@@ -1362,29 +1120,25 @@ a {
 
 
 .closing h2 {
-    position: relative;
-
     font-size: 35px;
 
     font-weight: 500;
 
-    color: #644a58;
+    color: #624754;
 }
 
 
 .closing-date {
-    position: relative;
-
     margin-top: 5px;
 
-    color: #a27c91;
+    color: #9f758c;
 
     font-size: 13px;
 }
 
 
 /* =========================================
-   Footer
+   FOOTER
 ========================================= */
 
 footer {
@@ -1393,20 +1147,16 @@ footer {
     padding: 22px;
 
     background:
-        linear-gradient(
-            135deg,
-            #705565,
-            #75627e
-        );
+        rgba(95, 67, 82, 0.90);
 
-    color: #f5e9f0;
+    color: #f8edf3;
 
     font-size: 11px;
 }
 
 
 /* =========================================
-   دکمه موسیقی
+   MUSIC BUTTON
 ========================================= */
 
 .music-button {
@@ -1423,8 +1173,8 @@ footer {
     background:
         linear-gradient(
             135deg,
-            #b77c9e,
-            #9879a7
+            #b77b9d,
+            #9678a5
         );
 
     color: #fff;
@@ -1466,30 +1216,8 @@ footer {
 }
 
 
-.music-ring {
-    position: absolute;
-
-    inset: -5px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid
-        rgba(185, 126, 160, 0.20);
-
-    opacity: 0;
-}
-
-
-.music-button.playing .music-ring {
-    animation:
-        musicRing 1.8s
-        ease-out infinite;
-}
-
-
 /* =========================================
-   انیمیشن‌ها
+   ANIMATIONS
 ========================================= */
 
 @keyframes fadeUp {
@@ -1513,19 +1241,19 @@ footer {
 @keyframes cardAppear {
 
     from {
+        opacity: 0;
+
         transform:
             translateY(25px)
             scale(0.97);
-
-        opacity: 0;
     }
 
     to {
+        opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
-
-        opacity: 1;
     }
 }
 
@@ -1593,32 +1321,14 @@ footer {
 
     50% {
         box-shadow:
-            0 7px 32px
-            rgba(125, 80, 111, 0.42);
+            0 7px 35px
+            rgba(125, 80, 111, 0.45);
     }
 
     100% {
         box-shadow:
             0 7px 25px
             rgba(125, 80, 111, 0.25);
-    }
-}
-
-
-@keyframes musicRing {
-
-    0% {
-        opacity: 0.5;
-
-        transform:
-            scale(0.9);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            scale(1.35);
     }
 }
 
@@ -1674,69 +1384,15 @@ footer {
 }
 
 
-@keyframes glowBreath {
-
-    0%,
-    100% {
-        opacity: 0.55;
-
-        transform:
-            scale(0.95);
-    }
-
-    50% {
-        opacity: 0.9;
-
-        transform:
-            scale(1.05);
-    }
-}
-
-
-@keyframes arrowFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(-1px);
-    }
-
-    50% {
-        transform:
-            translateY(3px);
-    }
-}
-
-
-@keyframes scrollArrow {
-
-    0%,
-    100% {
-        opacity: 0.45;
-
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        opacity: 1;
-
-        transform:
-            translateY(7px);
-    }
-}
-
-
 /* =========================================
-   موبایل
+   MOBILE
 ========================================= */
 
 @media (max-width: 520px) {
 
     .section {
         padding:
-            70px
-            18px;
+            70px 18px;
     }
 
 
@@ -1747,18 +1403,7 @@ footer {
 
     .intro-content {
         padding:
-            38px
-            20px;
-    }
-
-
-    .intro h1 {
-        font-size:
-            clamp(
-                42px,
-                13vw,
-                65px
-            );
+            38px 20px;
     }
 
 
@@ -1774,8 +1419,7 @@ footer {
         min-height: 150px;
 
         padding:
-            20px
-            10px;
+            20px 10px;
     }
 
 
@@ -1791,7 +1435,7 @@ footer {
 
 
     .countdown {
-        gap: 2px;
+        gap: 3px;
     }
 
 
@@ -1811,14 +1455,14 @@ footer {
 
 
     /*
-       روی موبایل هم بک‌گراند
-       همچنان کاملاً دیده می‌شود.
+       مهم:
+       روی موبایل هم عکس واضح بماند.
     */
 
     .background-image {
-        filter: blur(2px);
+        filter: blur(0.8px);
 
-        opacity: 0.68;
+        opacity: 0.90;
     }
 
 
@@ -1826,20 +1470,15 @@ footer {
         background:
             linear-gradient(
                 135deg,
-                rgba(255, 247, 252, 0.44),
-                rgba(249, 242, 253, 0.34)
+                rgba(255, 247, 252, 0.15),
+                rgba(247, 240, 252, 0.11)
             );
-    }
-
-
-    .floating-decoration {
-        opacity: 0.65;
     }
 }
 
 
 /* =========================================
-   موبایل‌های خیلی کوچک
+   VERY SMALL MOBILE
 ========================================= */
 
 @media (max-width: 350px) {
@@ -1857,17 +1496,11 @@ footer {
     .count-box small {
         font-size: 10px;
     }
-
-
-    .count-separator {
-        padding-bottom: 17px;
-    }
 }
 
 
 /* =========================================
-   کاهش انیمیشن برای دستگاه‌هایی که
-   reduced motion دارند
+   REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
