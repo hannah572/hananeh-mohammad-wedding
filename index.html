@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,22 +23,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- =========================
+    <!-- =========================================
          موسیقی
-    ========================== -->
+    ========================================== -->
 
     <audio id="weddingMusic" preload="auto" loop>
         <source src="assets/music.mp3" type="audio/mpeg">
     </audio>
 
 
-    <!-- =========================
+    <!-- =========================================
+         لایه بک‌گراند
+    ========================================== -->
+
+    <div class="site-background" aria-hidden="true">
+        <div class="background-image"></div>
+        <div class="background-overlay"></div>
+        <div class="background-blur"></div>
+    </div>
+
+
+    <!-- =========================================
+         عناصر تزئینی شناور
+    ========================================== -->
+
+    <div class="floating-decoration decoration-one" aria-hidden="true"></div>
+    <div class="floating-decoration decoration-two" aria-hidden="true"></div>
+    <div class="floating-decoration decoration-three" aria-hidden="true"></div>
+
+
+    <!-- =========================================
          صفحه آغازین
-    ========================== -->
+    ========================================== -->
 
     <section id="intro" class="intro">
+
+        <div class="intro-glow"></div>
 
         <div class="intro-content">
 
@@ -60,7 +84,8 @@
             </p>
 
             <button id="enterButton" class="main-button">
-                مشاهده دعوت‌نامه
+                <span>مشاهده دعوت‌نامه</span>
+                <span class="button-arrow">⌄</span>
             </button>
 
         </div>
@@ -68,18 +93,21 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =========================================
          محتوای اصلی
-    ========================== -->
+    ========================================== -->
 
     <main id="mainContent" class="main-content hidden">
 
 
-        <!-- =========================
+        <!-- =========================================
              Hero
-        ========================== -->
+        ========================================== -->
 
         <section class="hero section">
+
+            <div class="hero-orbit orbit-one"></div>
+            <div class="hero-orbit orbit-two"></div>
 
             <div class="decorative-line"></div>
 
@@ -103,133 +131,177 @@
 
             <div class="decorative-line"></div>
 
+            <div class="scroll-hint">
+                <span>⌄</span>
+            </div>
+
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              متن دعوت
-        ========================== -->
+        ========================================== -->
 
         <section class="invitation section">
 
-            <p class="section-label">
-                به شادیِ یک آغاز
-            </p>
+            <div class="section-inner">
 
-            <h2>
-                با عشق، منتظر دیدار شماییم
-            </h2>
+                <p class="section-label">
+                    به شادیِ یک آغاز
+                </p>
 
-            <p class="invitation-text">
-                با نهایت شادی و افتخار، از شما دعوت می‌کنیم
-                تا در شب آغاز زندگی مشترکمان،
-                در کنارمان باشید و شادی این لحظه‌ی عزیز را
-                با ما قسمت کنید.
-            </p>
+                <h2>
+                    با عشق، منتظر دیدار شماییم
+                </h2>
 
-            <div class="couple-names">
-                <span>حنانه شبستانی</span>
-                <small>و</small>
-                <span>محمد نظری پارسا</span>
+                <div class="title-flourish">
+                    <span></span>
+                    <i>♡</i>
+                    <span></span>
+                </div>
+
+                <p class="invitation-text">
+                    با نهایت شادی و افتخار، از شما دعوت می‌کنیم
+                    تا در شب آغاز زندگی مشترکمان،
+                    در کنارمان باشید و شادی این لحظه‌ی عزیز را
+                    با ما قسمت کنید.
+                </p>
+
+                <div class="couple-names">
+
+                    <span>
+                        حنانه شبستانی
+                    </span>
+
+                    <small>
+                        و
+                    </small>
+
+                    <span>
+                        محمد نظری پارسا
+                    </span>
+
+                </div>
+
             </div>
 
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              جزئیات مراسم
-        ========================== -->
+        ========================================== -->
 
         <section class="details section">
 
-            <p class="section-label">
-                جزئیات مراسم
-            </p>
+            <div class="section-inner">
 
-            <h2>
-                منتظر حضورتان هستیم
-            </h2>
+                <p class="section-label">
+                    جزئیات مراسم
+                </p>
 
-            <div class="details-grid">
+                <h2>
+                    منتظر حضورتان هستیم
+                </h2>
 
-
-                <div class="detail-card">
-
-                    <div class="detail-icon">
-                        ♡
-                    </div>
-
-                    <span class="detail-title">
-                        تاریخ
-                    </span>
-
-                    <strong>
-                        پنجشنبه
-                    </strong>
-
-                    <strong>
-                        ۱۶ مهر ۱۴۰۵
-                    </strong>
-
+                <div class="title-flourish">
+                    <span></span>
+                    <i>✦</i>
+                    <span></span>
                 </div>
 
 
-                <div class="detail-card">
+                <div class="details-grid">
 
-                    <div class="detail-icon">
-                        ◷
+
+                    <!-- تاریخ -->
+
+                    <div class="detail-card">
+
+                        <div class="detail-icon">
+                            ♡
+                        </div>
+
+                        <span class="detail-title">
+                            تاریخ
+                        </span>
+
+                        <strong>
+                            پنجشنبه
+                        </strong>
+
+                        <strong>
+                            ۱۶ مهر ۱۴۰۵
+                        </strong>
+
                     </div>
 
-                    <span class="detail-title">
-                        ساعت
-                    </span>
 
-                    <strong>
-                        ۱۹ الی ۲۳
-                    </strong>
+                    <!-- ساعت -->
 
-                </div>
+                    <div class="detail-card">
 
+                        <div class="detail-icon">
+                            ◷
+                        </div>
 
-                <div class="detail-card detail-card-wide">
+                        <span class="detail-title">
+                            ساعت
+                        </span>
 
-                    <div class="detail-icon">
-                        ✦
+                        <strong>
+                            ۱۹ الی ۲۳
+                        </strong>
+
                     </div>
 
-                    <span class="detail-title">
-                        مکان
-                    </span>
 
-                    <strong>
-                        هتل بین‌المللی باباطاهر همدان
-                    </strong>
+                    <!-- مکان -->
 
-                    <a
-                        class="map-button"
-                        href="https://www.google.com/maps/search/?api=1&query=هتل+بین‌المللی+باباطاهر+همدان"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        مشاهده روی نقشه
-                    </a>
+                    <div class="detail-card detail-card-wide">
 
-                </div>
+                        <div class="detail-icon">
+                            ✦
+                        </div>
 
+                        <span class="detail-title">
+                            مکان
+                        </span>
 
-                <div class="detail-card">
+                        <strong>
+                            هتل بین‌المللی باباطاهر همدان
+                        </strong>
 
-                    <div class="detail-icon">
-                        ✿
+                        <a
+                            class="map-button"
+                            href="https://www.google.com/maps/search/?api=1&query=هتل+بین‌المللی+باباطاهر+همدان"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <span>مشاهده روی نقشه</span>
+                            <span>↗</span>
+                        </a>
+
                     </div>
 
-                    <span class="detail-title">
-                        پذیرایی
-                    </span>
 
-                    <strong>
-                        به صرف شام و شیرینی
-                    </strong>
+                    <!-- پذیرایی -->
+
+                    <div class="detail-card">
+
+                        <div class="detail-icon">
+                            ✿
+                        </div>
+
+                        <span class="detail-title">
+                            پذیرایی
+                        </span>
+
+                        <strong>
+                            به صرف شام و شیرینی
+                        </strong>
+
+                    </div>
 
                 </div>
 
@@ -238,52 +310,98 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              شمارش معکوس
-        ========================== -->
+        ========================================== -->
 
         <section class="countdown-section section">
 
-            <p class="section-label">
-                تا شروع این شب زیبا
-            </p>
+            <div class="section-inner">
 
-            <h2>
-                شمارش معکوس
-            </h2>
+                <p class="section-label">
+                    تا شروع این شب زیبا
+                </p>
 
-            <div class="countdown" id="countdown">
+                <h2>
+                    شمارش معکوس
+                </h2>
 
-                <div class="count-box">
-                    <span id="days">--</span>
-                    <small>روز</small>
+                <div class="title-flourish">
+                    <span></span>
+                    <i>♡</i>
+                    <span></span>
                 </div>
 
-                <div class="count-separator">
-                    :
-                </div>
 
-                <div class="count-box">
-                    <span id="hours">--</span>
-                    <small>ساعت</small>
-                </div>
+                <div class="countdown" id="countdown">
 
-                <div class="count-separator">
-                    :
-                </div>
 
-                <div class="count-box">
-                    <span id="minutes">--</span>
-                    <small>دقیقه</small>
-                </div>
+                    <div class="count-box">
 
-                <div class="count-separator">
-                    :
-                </div>
+                        <span id="days">
+                            --
+                        </span>
 
-                <div class="count-box">
-                    <span id="seconds">--</span>
-                    <small>ثانیه</small>
+                        <small>
+                            روز
+                        </small>
+
+                    </div>
+
+
+                    <div class="count-separator">
+                        :
+                    </div>
+
+
+                    <div class="count-box">
+
+                        <span id="hours">
+                            --
+                        </span>
+
+                        <small>
+                            ساعت
+                        </small>
+
+                    </div>
+
+
+                    <div class="count-separator">
+                        :
+                    </div>
+
+
+                    <div class="count-box">
+
+                        <span id="minutes">
+                            --
+                        </span>
+
+                        <small>
+                            دقیقه
+                        </small>
+
+                    </div>
+
+
+                    <div class="count-separator">
+                        :
+                    </div>
+
+
+                    <div class="count-box">
+
+                        <span id="seconds">
+                            --
+                        </span>
+
+                        <small>
+                            ثانیه
+                        </small>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -291,11 +409,13 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =========================================
              پایان
-        ========================== -->
+        ========================================== -->
 
         <section class="closing section">
+
+            <div class="closing-glow"></div>
 
             <div class="closing-symbol">
                 ♡
@@ -316,27 +436,39 @@
         </section>
 
 
+        <!-- =========================================
+             Footer
+        ========================================== -->
+
         <footer>
             با عشق، برای یک شب به‌یادماندنی
         </footer>
 
+
     </main>
 
 
-    <!-- =========================
+    <!-- =========================================
          دکمه موسیقی
-    ========================== -->
+    ========================================== -->
 
     <button
         id="musicButton"
         class="music-button hidden"
         aria-label="پخش یا توقف موسیقی"
     >
-        <span id="musicIcon">♫</span>
+
+        <span class="music-ring"></span>
+
+        <span id="musicIcon">
+            ♫
+        </span>
+
     </button>
 
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
