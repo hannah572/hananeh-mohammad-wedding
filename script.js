@@ -22,10 +22,15 @@ enterButton.addEventListener("click", async () => {
     intro.style.opacity = "0";
     intro.style.transition = "opacity 0.7s ease";
 
+
     setTimeout(() => {
+
         intro.style.display = "none";
 
         mainContent.classList.remove("hidden");
+
+        mainContent.classList.add("revealed");
+
         musicButton.classList.remove("hidden");
 
         window.scrollTo({
@@ -37,9 +42,9 @@ enterButton.addEventListener("click", async () => {
 
 
     /*
-       شروع موسیقی بعد از کلیک کاربر.
-       این روش با محدودیت‌های Autoplay مرورگرها
-       سازگارتر است.
+        شروع موسیقی بعد از کلیک کاربر.
+        این روش با محدودیت‌های Autoplay مرورگرها
+        سازگارتر است.
     */
 
     try {
@@ -47,6 +52,7 @@ enterButton.addEventListener("click", async () => {
         await weddingMusic.play();
 
         musicButton.classList.add("playing");
+
         musicIcon.textContent = "Ⅱ";
 
     } catch (error) {
@@ -73,11 +79,14 @@ musicButton.addEventListener("click", async () => {
             await weddingMusic.play();
 
             musicButton.classList.add("playing");
+
             musicIcon.textContent = "Ⅱ";
 
         } catch (error) {
 
-            console.log("امکان پخش موسیقی وجود ندارد.");
+            console.log(
+                "امکان پخش موسیقی وجود ندارد."
+            );
 
         }
 
@@ -86,6 +95,7 @@ musicButton.addEventListener("click", async () => {
         weddingMusic.pause();
 
         musicButton.classList.remove("playing");
+
         musicIcon.textContent = "♫";
 
     }
@@ -98,10 +108,11 @@ musicButton.addEventListener("click", async () => {
 ========================================= */
 
 /*
-   تاریخ مراسم:
-   ۱۶ مهر ۱۴۰۵
-   برابر با ۸ اکتبر ۲۰۲۶
-   ساعت ۱۹:۰۰
+    تاریخ مراسم:
+
+    ۱۶ مهر ۱۴۰۵
+    برابر با ۸ اکتبر ۲۰۲۶
+    ساعت ۱۹:۰۰
 */
 
 const weddingDate = new Date(
@@ -113,54 +124,73 @@ function updateCountdown() {
 
     const now = new Date();
 
-    const difference = weddingDate.getTime() - now.getTime();
+    const difference =
+        weddingDate.getTime() -
+        now.getTime();
 
 
     /*
-       اگر مراسم شروع شده باشد
+        اگر مراسم شروع شده باشد
     */
 
     if (difference <= 0) {
 
         document.getElementById("days").textContent = "۰";
+
         document.getElementById("hours").textContent = "۰";
+
         document.getElementById("minutes").textContent = "۰";
+
         document.getElementById("seconds").textContent = "۰";
 
         return;
     }
 
 
-    const totalSeconds = Math.floor(
-        difference / 1000
-    );
+    const totalSeconds =
+        Math.floor(
+            difference / 1000
+        );
 
 
-    const days = Math.floor(
-        totalSeconds / (24 * 60 * 60)
-    );
+    const days =
+        Math.floor(
+            totalSeconds /
+            (24 * 60 * 60)
+        );
 
-    const hours = Math.floor(
-        (totalSeconds % (24 * 60 * 60)) /
-        (60 * 60)
-    );
 
-    const minutes = Math.floor(
-        (totalSeconds % (60 * 60)) /
-        60
-    );
+    const hours =
+        Math.floor(
+            (totalSeconds %
+                (24 * 60 * 60)) /
+            (60 * 60)
+        );
 
-    const seconds = totalSeconds % 60;
+
+    const minutes =
+        Math.floor(
+            (totalSeconds %
+                (60 * 60)) /
+            60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
 
 
     document.getElementById("days").textContent =
         toPersianNumber(days);
 
+
     document.getElementById("hours").textContent =
         toPersianNumber(hours);
 
+
     document.getElementById("minutes").textContent =
         toPersianNumber(minutes);
+
 
     document.getElementById("seconds").textContent =
         toPersianNumber(seconds);
@@ -175,8 +205,10 @@ function toPersianNumber(number) {
 
     return number
         .toString()
-        .replace(/\d/g, digit => "۰۱۲۳۴۵۶۷۸۹"[digit]);
-
+        .replace(
+            /\d/g,
+            digit => "۰۱۲۳۴۵۶۷۸۹"[digit]
+        );
 }
 
 
