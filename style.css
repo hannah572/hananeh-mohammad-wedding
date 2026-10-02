@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
-
-
-/* =========================================================
-   FONT
-========================================================= */
+/* =========================
+   FONTS
+========================= */
 
 @font-face {
     font-family: "IranNastaliq";
@@ -14,37 +11,34 @@
 }
 
 
-/* =========================================================
+/* =========================
    VARIABLES
-========================================================= */
+========================= */
 
 :root {
-    --pink: #c979a4;
-    --pink-dark: #9f557f;
-    --pink-light: #f8e9f2;
+    --pink: #d78caf;
+    --pink-dark: #a94f78;
+    --pink-light: #f7dce9;
 
-    --lilac: #b8a3c9;
-    --lilac-light: #f0e9f5;
+    --lilac: #b99bc9;
+    --lilac-light: #e9dded;
 
-    --white: #fffafd;
-    --text: #624b5b;
-    --text-light: #927c8d;
+    --white: #fffafc;
+    --text: #694f5d;
+    --text-light: #8d7480;
 
-    --border: rgba(184, 142, 171, 0.28);
-
-    --shadow:
-        0 12px 35px rgba(130, 75, 110, 0.10);
+    --shadow: 0 15px 45px rgba(160, 105, 135, 0.13);
 }
 
 
-/* =========================================================
+/* =========================
    RESET
-========================================================= */
+========================= */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -52,18 +46,11 @@ html {
 }
 
 body {
-    min-height: 100vh;
-
     font-family: "Estedad", sans-serif;
-
     color: var(--text);
 
     background-color: #f8eaf3;
 
-    /*
-       عکس عمداً خیلی محو شده
-       تا فقط یک بافت لطیف در پس‌زمینه باشد.
-    */
     background-image:
         linear-gradient(
             rgba(250, 238, 247, 0.93),
@@ -84,25 +71,22 @@ a {
     font-family: inherit;
 }
 
-button {
-    border: none;
-}
 
-
-/* =========================================================
-   INTRO PAGE
-========================================================= */
+/* =========================
+   INTRO
+========================= */
 
 .intro {
-    min-height: 100vh;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 30px 20px;
-
-    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
 
     background:
         linear-gradient(
@@ -114,88 +98,67 @@ button {
     background-position: center;
     background-size: cover;
 
-    animation: introAppear 1.5s ease forwards;
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease;
 }
 
-.intro::before {
-    content: "";
-
-    position: absolute;
-    inset: 18px;
-
-    border: 1px solid rgba(255,255,255,0.75);
-
-    border-radius: 25px;
-
+.intro.hidden {
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
 }
 
 .intro-content {
-    width: min(90%, 500px);
-
+    width: min(90%, 650px);
     text-align: center;
 
-    padding: 45px 25px;
-
-    position: relative;
-
-    animation: floatIn 1.2s ease both;
+    animation: introAppear 1.2s ease both;
 }
 
 .intro-small {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--text-light);
 
-    margin-bottom: 22px;
-
-    letter-spacing: 0.3px;
+    margin-bottom: 20px;
 
     animation: fadeUp 1s ease 0.2s both;
 }
 
-.intro-symbol {
-    font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
+.intro-heart {
+    font-size: 3.2rem;
+    color: var(--pink);
 
-    font-size: 3.3rem;
-
-    color: var(--pink-dark);
-
-    line-height: 1;
-
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 
     animation:
-        fadeUp 1s ease 0.35s both,
-        gentleFloat 4s ease-in-out 1.5s infinite;
-}
-
-.intro-symbol span {
-    font-family: "Estedad", sans-serif;
-
-    font-size: 1.5rem;
-
-    color: var(--lilac);
+        heartFloat 3s ease-in-out infinite,
+        fadeUp 1s ease 0.35s both;
 }
 
 .intro h1 {
     font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: clamp(3rem, 12vw, 5rem);
-
+    font-size: clamp(3rem, 10vw, 6rem);
     font-weight: normal;
+    line-height: 1.35;
 
     color: var(--pink-dark);
-
-    line-height: 1.2;
-
-    margin-bottom: 15px;
 
     animation: fadeUp 1s ease 0.5s both;
 }
 
+.intro h1 span {
+    font-family: "Estedad", sans-serif;
+    font-size: 0.35em;
+    color: var(--lilac);
+}
+
 .intro-line {
-    width: 90px;
+    width: 80px;
     height: 1px;
+
+    margin: 10px auto 18px;
 
     background: linear-gradient(
         to right,
@@ -204,171 +167,214 @@ button {
         transparent
     );
 
-    margin: 12px auto 20px;
-
-    animation: lineGrow 1.2s ease 0.7s both;
+    animation: lineGrow 1s ease 0.8s both;
 }
 
 .intro p {
-    font-size: 0.9rem;
-
+    font-size: 0.95rem;
     color: var(--text-light);
 
     margin-bottom: 30px;
 
-    animation: fadeUp 1s ease 0.8s both;
+    animation: fadeUp 1s ease 0.9s both;
 }
 
 
-/* =========================================================
-   MAIN BUTTON
-========================================================= */
+/* =========================
+   ENTER BUTTON
+========================= */
 
-.main-button {
-    display: inline-flex;
+.enter-button {
+    border: none;
+    outline: none;
 
-    align-items: center;
-    justify-content: center;
-
-    min-width: 190px;
-
-    padding: 13px 28px;
+    padding: 13px 25px;
 
     border-radius: 50px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #c979a4,
-            #ae78a8
-        );
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--pink-dark);
 
-    color: white;
+    border: 1px solid rgba(215, 140, 175, 0.35);
 
-    font-size: 0.88rem;
+    box-shadow:
+        0 10px 30px rgba(160, 105, 135, 0.12);
 
     cursor: pointer;
 
-    box-shadow:
-        0 8px 22px rgba(168, 100, 145, 0.22);
+    font-size: 0.85rem;
 
     transition:
         transform 0.3s ease,
+        background 0.3s ease,
         box-shadow 0.3s ease;
 
-    animation: fadeUp 1s ease 1s both;
+    animation: fadeUp 1s ease 1.05s both;
 }
 
-.main-button:hover {
+.enter-button span {
+    margin-right: 7px;
+}
+
+.enter-button:hover {
     transform: translateY(-3px);
 
+    background: rgba(255, 255, 255, 0.95);
+
     box-shadow:
-        0 12px 28px rgba(168, 100, 145, 0.3);
+        0 14px 35px rgba(160, 105, 135, 0.18);
 }
 
-.main-button:active {
+.enter-button:active {
     transform: scale(0.97);
 }
 
 
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
-
-.hidden {
-    display: none;
-}
+/* =========================
+   MAIN
+========================= */
 
 .main-content {
-    width: 100%;
-    min-height: 100vh;
+    opacity: 0;
 
-    position: relative;
+    transition: opacity 1s ease;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(250, 237, 247, 0.94),
-            rgba(247, 235, 247, 0.97)
-        );
+    visibility: hidden;
+}
 
-    animation: mainAppear 1s ease forwards;
+.main-content.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 
-/* =========================================================
-   SECTIONS
-========================================================= */
+/* =========================
+   MUSIC BUTTON
+========================= */
 
-.section {
-    width: min(92%, 850px);
+.music-button {
+    position: fixed;
 
-    margin: 0 auto;
+    top: 18px;
+    left: 18px;
 
-    padding: 75px 25px;
+    z-index: 100;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    background: rgba(255, 250, 252, 0.75);
+
+    color: var(--pink-dark);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 25px rgba(150, 100, 130, 0.12);
+
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.08);
+}
+
+.music-button.playing {
+    animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     text-align: center;
 
-    position: relative;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    min-height: 85vh;
-
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    padding-top: 100px;
-    padding-bottom: 90px;
-}
-
-.decorative-line {
-    width: 110px;
-    height: 1px;
-
-    margin: 12px auto 28px;
+    overflow: hidden;
 
     background:
         linear-gradient(
-            to right,
-            transparent,
-            var(--pink),
-            transparent
-        );
+            rgba(250, 235, 246, 0.73),
+            rgba(246, 232, 245, 0.84)
+        ),
+        url("assets/background.jpg");
 
-    animation: lineGrow 1.2s ease both;
+    background-position: center;
+    background-size: cover;
 }
 
-.eyebrow {
-    font-size: 0.82rem;
+.hero-overlay {
+    position: absolute;
+    inset: 0;
 
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.30),
+            transparent 60%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 92%;
+    max-width: 900px;
+
+    padding: 40px 15px;
+
+    animation: heroAppear 1.5s ease both;
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
     color: var(--text-light);
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
 
-    animation: fadeUp 1s ease both;
+.hero-symbol {
+    color: var(--lilac);
+    font-size: 1.3rem;
+
+    margin-bottom: 5px;
+
+    animation: starFloat 3s ease-in-out infinite;
 }
 
 .hero h1 {
     font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: clamp(4rem, 16vw, 7rem);
-
+    font-size: clamp(2.3rem, 8vw, 4.5rem);
     font-weight: normal;
 
-    line-height: 1.15;
+    line-height: 1.3;
 
     color: var(--pink-dark);
 
     margin-bottom: 10px;
+
+    white-space: nowrap;
 
     animation: nameAppear 1.1s ease 0.2s both;
 }
@@ -376,11 +382,11 @@ button {
 .hero h1 span {
     font-family: "Estedad", sans-serif;
 
-    font-size: 0.35em;
+    font-size: 0.28em;
 
     color: var(--lilac);
 
-    margin: 0 8px;
+    margin: 0 4px;
 
     vertical-align: middle;
 }
@@ -390,147 +396,132 @@ button {
 
     color: var(--text);
 
-    margin-bottom: 30px;
+    margin-bottom: 22px;
 
-    animation: fadeUp 1s ease 0.5s both;
+    animation: fadeUp 1s ease 0.6s both;
 }
 
 .hero-poem {
     font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
 
     color: var(--pink-dark);
 
-    line-height: 2;
-
-    margin-top: 5px;
-
-    animation: fadeUp 1s ease 0.7s both;
+    animation: fadeUp 1s ease 0.8s both;
 }
 
-
-/* =========================================================
-   INVITATION
-========================================================= */
-
-.invitation {
-    width: min(92%, 760px);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 251, 254, 0.94),
-            rgba(248, 237, 247, 0.96)
-        );
-
-    border: 1px solid rgba(255,255,255,0.9);
-
-    border-radius: 30px;
-
-    box-shadow: var(--shadow);
-
-    margin-bottom: 35px;
-
-    padding: 65px 28px;
-
-    overflow: hidden;
-}
-
-.invitation::before {
-    content: "♡";
-
+.scroll-hint {
     position: absolute;
 
-    left: 20px;
-    top: 15px;
+    bottom: 25px;
+    left: 50%;
 
-    font-size: 4rem;
+    transform: translateX(-50%);
 
-    color: rgba(201, 121, 164, 0.08);
+    color: var(--pink);
 
-    transform: rotate(-15deg);
+    font-size: 1.8rem;
+
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    position: relative;
+
+    padding: 90px 20px;
+}
+
+.section-inner {
+    width: min(100%, 850px);
+
+    margin: 0 auto;
+
+    text-align: center;
 }
 
 .section-label {
-    font-size: 0.78rem;
+    color: var(--pink);
 
-    color: var(--lilac);
+    font-size: 0.8rem;
 
-    margin-bottom: 13px;
-
-    letter-spacing: 0.3px;
+    margin-bottom: 12px;
 }
 
-.invitation h2,
-.details h2,
-.countdown-section h2 {
+.section h2 {
     font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: clamp(2rem, 7vw, 3rem);
+    font-size: clamp(2rem, 6vw, 3.2rem);
 
     font-weight: normal;
 
     color: var(--pink-dark);
 
-    margin-bottom: 25px;
-
     line-height: 1.5;
+
+    margin-bottom: 18px;
 }
 
-.invitation-text {
-    max-width: 570px;
+.section-line {
+    width: 70px;
+    height: 1px;
 
-    margin: 0 auto 30px;
+    margin: 0 auto 25px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--lilac),
+        transparent
+    );
+}
+
+.section p {
+    max-width: 650px;
+
+    margin: 0 auto;
 
     font-size: 0.92rem;
 
-    line-height: 2.3;
+    line-height: 2.2;
 
     color: var(--text-light);
 }
 
-.couple-names {
-    display: flex;
+.invitation {
+    background:
+        linear-gradient(
+            rgba(250, 237, 247, 0.92),
+            rgba(244, 233, 246, 0.95)
+        );
+}
 
-    flex-wrap: wrap;
+.invitation-decoration {
+    color: var(--lilac);
 
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
+    font-size: 1.5rem;
 
     margin-top: 30px;
 
-    color: var(--pink-dark);
-}
-
-.couple-names span {
-    font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
-
-    font-size: 2rem;
-
-    line-height: 1.5;
-}
-
-.couple-names small {
-    font-family: "Estedad", sans-serif;
-
-    color: var(--lilac);
-
-    font-size: 0.9rem;
+    animation: starFloat 3s ease-in-out infinite;
 }
 
 
-/* =========================================================
+/* =========================
    DETAILS
-========================================================= */
+========================= */
 
 .details {
-    width: min(94%, 900px);
-
-    padding-top: 75px;
-    padding-bottom: 75px;
+    background:
+        linear-gradient(
+            rgba(255, 250, 252, 0.88),
+            rgba(248, 238, 248, 0.92)
+        );
 }
 
 .details-grid {
@@ -538,117 +529,76 @@ button {
 
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 15px;
+    gap: 18px;
 
     margin-top: 35px;
 }
 
 .detail-card {
-    min-height: 185px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 22px 15px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.96),
-            rgba(251,242,249,0.96)
-        );
-
-    border: 1px solid var(--border);
+    padding: 28px 18px;
 
     border-radius: 24px;
 
-    box-shadow:
-        0 8px 25px rgba(130, 75, 110, 0.06);
+    background: rgba(255, 255, 255, 0.55);
+
+    border: 1px solid rgba(215, 140, 175, 0.16);
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(8px);
 
     transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-
-    animation: cardAppear 0.8s ease both;
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .detail-card:hover {
     transform: translateY(-5px);
 
     box-shadow:
-        0 15px 30px rgba(130, 75, 110, 0.11);
-}
-
-.detail-card-wide {
-    grid-column: 1 / -1;
-
-    min-height: 200px;
+        0 20px 45px rgba(160, 105, 135, 0.17);
 }
 
 .detail-icon {
-    width: 45px;
-    height: 45px;
+    color: var(--pink);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.5rem;
 
-    border-radius: 50%;
-
-    background: var(--pink-light);
-
-    color: var(--pink-dark);
-
-    font-size: 1.2rem;
-
-    margin-bottom: 13px;
+    margin-bottom: 12px;
 }
 
 .detail-title {
-    font-size: 0.76rem;
+    font-size: 0.75rem;
 
-    color: var(--lilac);
+    color: var(--text-light);
 
     margin-bottom: 8px;
 }
 
-.detail-card strong {
+.detail-value {
     font-size: 0.9rem;
 
-    font-weight: 500;
+    line-height: 1.9;
 
     color: var(--text);
-
-    line-height: 1.9;
 }
 
-
-/* =========================================================
-   MAP BUTTON
-========================================================= */
-
 .map-button {
-    display: inline-flex;
+    display: inline-block;
 
-    align-items: center;
-    justify-content: center;
+    margin-top: 13px;
 
-    margin-top: 15px;
+    padding: 7px 13px;
 
-    padding: 9px 18px;
-
-    border-radius: 30px;
-
-    background: var(--pink-light);
-
-    color: var(--pink-dark);
+    border-radius: 20px;
 
     text-decoration: none;
 
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+
+    color: var(--pink-dark);
+
+    background: rgba(215, 140, 175, 0.12);
 
     transition:
         background 0.3s ease,
@@ -656,219 +606,156 @@ button {
 }
 
 .map-button:hover {
-    background: #f2dce9;
+    background: rgba(215, 140, 175, 0.2);
 
     transform: translateY(-2px);
 }
 
 
-/* =========================================================
+/* =========================
    COUNTDOWN
-========================================================= */
+========================= */
 
 .countdown-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    background:
+        linear-gradient(
+            rgba(244, 229, 245, 0.92),
+            rgba(250, 237, 247, 0.94)
+        );
 }
 
 .countdown {
     display: flex;
 
-    align-items: center;
     justify-content: center;
 
-    direction: ltr;
+    gap: 12px;
 
     margin-top: 35px;
-
-    gap: 8px;
 }
 
-.count-box {
-    min-width: 70px;
+.countdown-item {
+    width: 90px;
 
-    padding: 15px 8px;
+    padding: 18px 8px;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.95),
-            rgba(247,233,245,0.95)
-        );
+    background: rgba(255, 255, 255, 0.62);
 
-    border: 1px solid var(--border);
+    border: 1px solid rgba(215, 140, 175, 0.15);
 
-    box-shadow:
-        0 7px 20px rgba(130,75,110,0.06);
+    box-shadow: var(--shadow);
 }
 
-.count-box span {
+.countdown-item span {
     display: block;
 
-    font-size: 1.45rem;
-
-    font-weight: 600;
+    font-size: 1.7rem;
 
     color: var(--pink-dark);
 
-    margin-bottom: 4px;
+    font-weight: 500;
 }
 
-.count-box small {
+.countdown-item small {
+    display: block;
+
+    margin-top: 5px;
+
     font-size: 0.65rem;
 
     color: var(--text-light);
 }
 
-.count-separator {
-    font-size: 1.4rem;
 
-    color: var(--lilac);
-
-    margin-top: -18px;
-}
-
-
-/* =========================================================
+/* =========================
    CLOSING
-========================================================= */
+========================= */
 
 .closing {
-    padding-top: 90px;
-    padding-bottom: 90px;
+    padding-bottom: 70px;
+
+    background:
+        linear-gradient(
+            rgba(249, 233, 245, 0.92),
+            rgba(245, 229, 244, 0.96)
+        );
 }
 
-.closing-symbol {
-    font-size: 2rem;
+.closing-heart {
+    font-size: 3rem;
 
     color: var(--pink);
 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
-    animation: heartbeat 2.5s ease-in-out infinite;
+    animation: heartFloat 3s ease-in-out infinite;
 }
 
 .closing p {
-    font-size: 0.85rem;
+    margin-bottom: 25px;
+}
+
+.closing h2 {
+    margin-bottom: 10px;
+}
+
+.closing-date {
+    font-size: 0.9rem;
+
+    color: var(--text-light);
+
+    margin-bottom: 25px;
+}
+
+.closing-line {
+    width: 55px;
+    height: 1px;
+
+    margin: 0 auto 25px;
+
+    background: var(--lilac);
+}
+
+.closing-formal {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    font-size: 0.72rem;
 
     line-height: 2;
 
     color: var(--text-light);
-
-    margin-bottom: 20px;
-}
-
-.closing h2 {
-    font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
-
-    font-size: clamp(2.7rem, 10vw, 4.5rem);
-
-    font-weight: normal;
-
-    color: var(--pink-dark);
-
-    line-height: 1.3;
-
-    margin-bottom: 5px;
-}
-
-.closing-date {
-    font-size: 0.8rem;
-
-    color: var(--lilac);
 }
 
 
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer {
+    padding: 25px 20px 35px;
+
     text-align: center;
 
-    padding: 25px 15px 35px;
+    font-size: 0.65rem;
 
-    font-size: 0.68rem;
+    color: var(--text-light);
 
-    color: rgba(98, 75, 91, 0.5);
+    background: rgba(244, 228, 243, 0.96);
 }
 
 
-/* =========================================================
-   MUSIC BUTTON
-========================================================= */
-
-.music-button {
-    position: fixed;
-
-    bottom: 20px;
-    left: 20px;
-
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #c979a4,
-            #aa78aa
-        );
-
-    color: white;
-
-    font-size: 1.25rem;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px rgba(130,75,110,0.2);
-
-    z-index: 100;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.music-button:hover {
-    transform: scale(1.08);
-
-    box-shadow:
-        0 10px 25px rgba(130,75,110,0.28);
-}
-
-.music-button.playing {
-    animation: musicPulse 1.8s ease-in-out infinite;
-}
-
-
-/* =========================================================
+/* =========================
    ANIMATIONS
-========================================================= */
+========================= */
 
 @keyframes introAppear {
     from {
         opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes mainAppear {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(20px);
     }
 
     to {
@@ -889,61 +776,72 @@ footer {
     }
 }
 
-@keyframes floatIn {
-    from {
-        opacity: 0;
-        transform: translateY(25px) scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes nameAppear {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 @keyframes lineGrow {
     from {
+        width: 0;
         opacity: 0;
-        transform: scaleX(0);
     }
 
     to {
+        width: 80px;
         opacity: 1;
-        transform: scaleX(1);
     }
 }
 
-@keyframes gentleFloat {
+@keyframes heartFloat {
     0%,
     100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-6px);
     }
 }
 
-@keyframes heartbeat {
+@keyframes starFloat {
     0%,
     100% {
-        transform: scale(1);
+        transform: translateY(0) rotate(0deg);
     }
 
     50% {
-        transform: scale(1.12);
+        transform: translateY(-5px) rotate(8deg);
+    }
+}
+
+@keyframes heroAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes nameAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scrollBounce {
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 8px);
     }
 }
 
@@ -951,208 +849,106 @@ footer {
     0%,
     100% {
         box-shadow:
-            0 8px 20px rgba(130,75,110,0.2);
+            0 8px 25px rgba(150, 100, 130, 0.12);
     }
 
     50% {
         box-shadow:
-            0 8px 28px rgba(130,75,110,0.4);
-    }
-}
-
-@keyframes cardAppear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+            0 8px 30px rgba(215, 140, 175, 0.35);
     }
 }
 
 
-/* =========================================================
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 700px) {
+
+    .hero h1 {
+        font-size: clamp(2.8rem, 7vw, 4.5rem);
+    }
+
+    .detail-card {
+        padding: 32px 25px;
+    }
+}
+
+
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media (max-width: 600px) {
 
-    body {
-        background-attachment: scroll;
-
-        background-size: auto 100vh;
-
-        background-position: center top;
-    }
-
-    .intro {
-        min-height: 100svh;
-
-        padding: 20px;
-    }
-
-    .intro::before {
-        inset: 12px;
-
-        border-radius: 20px;
-    }
-
-    .intro-content {
-        padding: 30px 15px;
-    }
-
-    .intro-small {
-        font-size: 0.75rem;
-    }
-
-    .intro-symbol {
-        font-size: 2.8rem;
-    }
-
     .intro h1 {
-        font-size: clamp(3rem, 15vw, 4.5rem);
-    }
-
-    .intro p {
-        font-size: 0.78rem;
-    }
-
-    .main-button {
-        min-width: 175px;
-
-        padding: 12px 22px;
-
-        font-size: 0.8rem;
-    }
-
-    .section {
-        width: 94%;
-
-        padding: 60px 18px;
-    }
-
-    .hero {
-        min-height: 82vh;
-
-        padding-top: 80px;
+        font-size: 3.2rem;
     }
 
     .hero h1 {
-        font-size: clamp(3.5rem, 19vw, 5.5rem);
+        font-size: 2.65rem;
+        white-space: nowrap;
     }
 
     .hero-poem {
-        font-size: 1.45rem;
-
-        padding: 0 10px;
+        font-size: 1.55rem;
     }
 
-    .invitation {
-        padding: 50px 20px;
-
-        border-radius: 25px;
-    }
-
-    .invitation h2,
-    .details h2,
-    .countdown-section h2 {
-        font-size: 2.2rem;
-    }
-
-    .invitation-text {
-        font-size: 0.8rem;
-
-        line-height: 2.2;
-    }
-
-    .couple-names {
-        flex-direction: column;
-
-        gap: 2px;
-    }
-
-    .couple-names span {
-        font-size: 1.8rem;
+    .section {
+        padding: 75px 18px;
     }
 
     .details-grid {
         grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-    .detail-card,
-    .detail-card-wide {
-        grid-column: auto;
-
-        min-height: 160px;
     }
 
     .countdown {
-        gap: 4px;
+        gap: 7px;
     }
 
-    .count-box {
-        min-width: 58px;
+    .countdown-item {
+        width: 74px;
 
-        padding: 12px 5px;
-
-        border-radius: 15px;
+        padding: 15px 5px;
     }
 
-    .count-box span {
-        font-size: 1.15rem;
+    .countdown-item span {
+        font-size: 1.4rem;
     }
 
-    .count-box small {
+    .countdown-item small {
         font-size: 0.58rem;
     }
 
-    .count-separator {
-        font-size: 1rem;
-
-        margin-top: -15px;
-    }
-
-    .closing h2 {
-        font-size: 3.2rem;
-    }
-
     .music-button {
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
 
-        bottom: 16px;
-        left: 16px;
+        top: 14px;
+        left: 14px;
     }
 }
 
 
-/* =========================================================
+/* =========================
    VERY SMALL PHONES
-========================================================= */
+========================= */
 
-@media (max-width: 370px) {
+@media (max-width: 380px) {
 
-    .count-box {
-        min-width: 52px;
-    }
-
-    .count-box span {
-        font-size: 1rem;
-    }
-
-    .count-separator {
-        font-size: 0.85rem;
+    .intro h1 {
+        font-size: 2.8rem;
     }
 
     .hero h1 {
-        font-size: 3.4rem;
+        font-size: 2.35rem;
     }
 
     .hero-poem {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+    }
+
+    .countdown-item {
+        width: 68px;
     }
 }
