@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const music = document.getElementById("weddingMusic");
     const musicButton = document.getElementById("musicButton");
 
-    /* ================= MUSIC ================= */
+
+    /* =========================
+       MUSIC BUTTON
+    ========================= */
 
     musicButton.addEventListener("click", async function () {
 
@@ -14,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 await music.play();
 
                 musicButton.classList.add("playing");
+
                 musicButton.innerHTML = "♫";
 
             } catch (error) {
@@ -27,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             music.pause();
 
             musicButton.classList.remove("playing");
+
             musicButton.innerHTML = "♪";
 
         }
@@ -34,9 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    /* =========================
+       MUSIC EVENTS
+    ========================= */
+
     music.addEventListener("play", function () {
 
         musicButton.classList.add("playing");
+
         musicButton.innerHTML = "♫";
 
     });
@@ -45,12 +55,15 @@ document.addEventListener("DOMContentLoaded", function () {
     music.addEventListener("pause", function () {
 
         musicButton.classList.remove("playing");
+
         musicButton.innerHTML = "♪";
 
     });
 
 
-    /* ================= COUNTDOWN ================= */
+    /* =========================
+       COUNTDOWN
+    ========================= */
 
     const targetDate =
         new Date("2026-10-08T19:00:00+03:30").getTime();
@@ -82,9 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateCountdown() {
 
-        const now = new Date().getTime();
+        const now =
+            new Date().getTime();
 
-        const distance = targetDate - now;
+        const distance =
+            targetDate - now;
 
 
         if (distance <= 0) {
