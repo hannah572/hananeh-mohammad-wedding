@@ -191,18 +191,6 @@ button {
     animation: fadeUp 1s ease 0.5s both;
 }
 
-.intro h1 span {
-    font-family: "Estedad", sans-serif;
-
-    font-size: 0.28em;
-
-    color: var(--lilac);
-
-    margin: 0 5px;
-
-    vertical-align: middle;
-}
-
 .intro-line {
     width: 90px;
     height: 1px;
@@ -369,16 +357,15 @@ button {
 }
 
 
-/*
-   نام خانوادگی‌ها
-   عمداً nowrap هستند تا در موبایل
-   «پارسا» به خط بعد منتقل نشود.
-*/
+/* =========================================================
+   HERO NAMES
+   فقط سایز فونت این بخش کوچک شده
+========================================================= */
 
 .hero h1 {
     font-family: "IranNastaliq", "Noto Naskh Arabic", serif;
 
-    font-size: clamp(2.8rem, 10.5vw, 5.8rem);
+    font-size: clamp(2.3rem, 8vw, 4.5rem);
 
     font-weight: normal;
 
@@ -980,6 +967,20 @@ footer {
 
 }
 
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
 
 /* =========================================================
    MOBILE
@@ -1026,9 +1027,7 @@ footer {
 
 
     .intro h1 {
-        font-size: clamp(2.7rem, 13vw, 4.3rem);
-
-        white-space: nowrap;
+        font-size: clamp(3rem, 15vw, 4.5rem);
     }
 
 
@@ -1061,24 +1060,14 @@ footer {
 
 
     /*
-       اندازه نام خانوادگی‌ها
-       در موبایل کوچک‌تر می‌شود
-       ولی هرگز wrap نمی‌شود.
+       فقط اندازه فونت نام‌ها کاهش داده شده.
+       هیچ بخش دیگری تغییر نکرده.
     */
 
     .hero h1 {
-        font-size: clamp(2.55rem, 10.8vw, 4.2rem);
+        font-size: 2.65rem;
 
         white-space: nowrap;
-
-        max-width: 100%;
-    }
-
-
-    .hero h1 span {
-        font-size: 0.25em;
-
-        margin: 0 3px;
     }
 
 
@@ -1178,26 +1167,8 @@ footer {
 
 @media (max-width: 370px) {
 
-    .intro h1 {
-        font-size: 2.45rem;
-    }
-
-
     .hero h1 {
-        /*
-           مخصوص گوشی‌های خیلی باریک
-        */
-
         font-size: 2.35rem;
-
-        letter-spacing: -0.5px;
-    }
-
-
-    .hero h1 span {
-        font-size: 0.23em;
-
-        margin: 0 2px;
     }
 
 
