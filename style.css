@@ -1156,3 +1156,10 @@ footer {
         font-size: 1.3rem;
     }
 }
+.invitation-decoration {
+    font-size: 1.5rem;
+    color: var(--pink);
+    margin-top: 25px;
+
+    animation: gentleFloat 3s ease-in-out infinite;
+}
