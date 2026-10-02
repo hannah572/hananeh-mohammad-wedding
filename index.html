@@ -1,63 +1,27 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>دعوت‌نامه</title>
 
-    <title>دعوت‌نامه عروسی</title>
-
-    <meta
-        name="description"
-        content="دعوت‌نامه جشن آغاز زندگی مشترک"
-    >
+    <meta name="description" content="دعوت‌نامه مراسم">
+    <meta name="theme-color" content="#f6e8f2">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
+    <!-- ================= INTRO ================= -->
 
-    <!-- موسیقی -->
-
-    <audio
-        id="weddingMusic"
-        preload="auto"
-        loop
-    >
-        <source
-            src="assets/music.mp3"
-            type="audio/mpeg"
-        >
-    </audio>
-
-
-
-    <!-- =====================================================
-         صفحه آغازین
-    ====================================================== -->
-
-    <section
-        id="intro"
-        class="intro"
-    >
+    <section id="intro" class="intro">
 
         <div class="intro-content">
 
@@ -65,32 +29,21 @@
                 به نام آنکه عشق را آفرید
             </div>
 
-
-            <div class="intro-symbol">
-                ♡
-            </div>
-
+            <div class="intro-heart">♡</div>
 
             <h1>
-                یک آغاز
-                <span>،</span>
-                یک عشق
+                یک آغاز <span>،</span> یک عشق
             </h1>
 
-
             <div class="intro-line"></div>
-
 
             <p>
                 به جشن آغاز زندگی مشترکمان دعوتید
             </p>
 
-
-            <button
-                id="enterButton"
-                class="main-button"
-            >
+            <button id="enterButton" class="enter-button" type="button">
                 مشاهده دعوت‌نامه
+                <span>♡</span>
             </button>
 
         </div>
@@ -98,280 +51,212 @@
     </section>
 
 
+    <!-- ================= MAIN ================= -->
 
-    <!-- =====================================================
-         محتوای اصلی
-    ====================================================== -->
+    <main id="mainContent" class="main-content">
 
-    <main
-        id="mainContent"
-        class="main-content hidden"
-    >
+        <!-- MUSIC -->
 
+        <button id="musicButton" class="music-button" type="button" aria-label="پخش موسیقی">
+            ♪
+        </button>
 
-        <!-- HERO -->
-
-        <section class="hero section">
-
-            <div class="decorative-line"></div>
+        <audio id="weddingMusic" loop preload="auto">
+            <source src="assets/music.mp3" type="audio/mpeg">
+        </audio>
 
 
-            <p class="eyebrow">
-                به نام آنکه عشق را آفرید
-            </p>
+        <!-- ================= HERO ================= -->
 
+        <section class="hero">
 
-            <h1>
-                شبستانی
-                <span>و</span>
-                نظری پارسا
-            </h1>
+            <div class="hero-overlay"></div>
 
+            <div class="hero-content">
 
-            <p class="hero-date">
-                ۱۶ مهر ۱۴۰۵
-            </p>
+                <div class="hero-eyebrow">
+                    به نام آنکه عشق را آفرید
+                </div>
 
+                <div class="hero-symbol">
+                    ✦
+                </div>
 
-            <div class="hero-poem">
-                «تو مرا جان و جهانی، چه کنم جان و جهان را»
+                <h1>
+                    شبستانی <span>و</span> نظری پارسا
+                </h1>
+
+                <div class="hero-date">
+                    ۱۶ مهر ۱۴۰۵
+                </div>
+
+                <div class="hero-poem">
+                    «تو مرا جان و جهانی، چه کنم جان و جهان را»
+                </div>
+
             </div>
 
-
-            <div class="decorative-line"></div>
+            <div class="scroll-hint">
+                <span>⌄</span>
+            </div>
 
         </section>
 
 
-
-        <!-- دعوت -->
+        <!-- ================= INVITATION ================= -->
 
         <section class="invitation section">
 
-            <p class="section-label">
-                به شادیِ یک آغاز
-            </p>
+            <div class="section-inner">
 
+                <div class="section-label">
+                    به شادیِ یک آغاز
+                </div>
 
-            <h2>
-                با عشق، منتظر دیدار شماییم
-            </h2>
+                <h2>
+                    با عشق، منتظر دیدار شماییم
+                </h2>
 
+                <div class="section-line"></div>
 
-            <p class="invitation-text">
-                با نهایت شادی و افتخار، از شما دعوت می‌کنیم
-                تا در شب آغاز زندگی مشترکمان،
-                در کنارمان باشید و شادی این لحظه‌ی عزیز را
-                با ما قسمت کنید.
-            </p>
+                <p>
+                    در شبی که قرار است آغازگر فصل تازه‌ای از زندگی باشد،
+                    حضور ارزشمند شما شادی این لحظه را برایمان کامل‌تر خواهد کرد.
+                </p>
 
+                <div class="invitation-decoration">
+                    ✦
+                </div>
 
-            <div class="invitation-decoration">
-                ✦
             </div>
 
         </section>
 
 
-
-        <!-- جزئیات مراسم -->
+        <!-- ================= DETAILS ================= -->
 
         <section class="details section">
 
-            <p class="section-label">
-                جزئیات مراسم
-            </p>
+            <div class="section-inner">
 
-
-            <h2>
-                منتظر حضورتان هستیم
-            </h2>
-
-
-            <div class="details-grid">
-
-
-                <!-- تاریخ -->
-
-                <div class="detail-card">
-
-                    <div class="detail-icon">
-                        ♡
-                    </div>
-
-                    <span class="detail-title">
-                        تاریخ
-                    </span>
-
-                    <strong>
-                        پنجشنبه
-                    </strong>
-
-                    <strong>
-                        ۱۶ مهر ۱۴۰۵
-                    </strong>
-
+                <div class="section-label">
+                    جزئیات مراسم
                 </div>
 
+                <h2>
+                    منتظر حضورتان هستیم
+                </h2>
 
+                <div class="details-grid">
 
-                <!-- ساعت -->
+                    <div class="detail-card">
+                        <div class="detail-icon">♡</div>
 
-                <div class="detail-card">
+                        <div class="detail-title">
+                            تاریخ
+                        </div>
 
-                    <div class="detail-icon">
-                        ◷
+                        <div class="detail-value">
+                            ۱۶ مهر ۱۴۰۵
+                        </div>
+
                     </div>
 
-                    <span class="detail-title">
-                        ساعت
-                    </span>
 
-                    <strong>
-                        ۱۹ الی ۲۳
-                    </strong>
+                    <div class="detail-card">
+                        <div class="detail-icon">◷</div>
 
-                </div>
+                        <div class="detail-title">
+                            ساعت
+                        </div>
 
+                        <div class="detail-value">
+                            ۱۹ الی ۲۳
+                        </div>
 
-
-                <!-- مکان -->
-
-                <div class="detail-card detail-card-wide">
-
-                    <div class="detail-icon">
-                        ✦
                     </div>
 
-                    <span class="detail-title">
-                        مکان
-                    </span>
 
-                    <strong>
-                        هتل بین‌المللی باباطاهر همدان
-                    </strong>
+                    <div class="detail-card location-card">
 
+                        <div class="detail-icon">⌖</div>
 
-                    <a
-                        class="map-button"
-                        href="https://www.google.com/maps/search/?api=1&query=هتل+بین‌المللی+باباطاهر+همدان"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        مشاهده روی نقشه
-                    </a>
+                        <div class="detail-title">
+                            مکان
+                        </div>
 
-                </div>
+                        <div class="detail-value">
+                            هتل بین‌المللی باباطاهر همدان
+                        </div>
 
+                        <a
+                            class="map-button"
+                            href="https://www.google.com/maps/search/?api=1&query=هتل+بین‌المللی+باباطاهر+همدان"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            مشاهده در نقشه
+                        </a>
 
-
-                <!-- پذیرایی -->
-
-                <div class="detail-card">
-
-                    <div class="detail-icon">
-                        ✿
                     </div>
 
-                    <span class="detail-title">
-                        پذیرایی
-                    </span>
 
-                    <strong>
-                        به صرف شام و شیرینی
-                    </strong>
+                    <div class="detail-card">
+
+                        <div class="detail-icon">✦</div>
+
+                        <div class="detail-title">
+                            پذیرایی
+                        </div>
+
+                        <div class="detail-value">
+                            به صرف شام و شیرینی
+                        </div>
+
+                    </div>
 
                 </div>
-
 
             </div>
 
         </section>
 
 
-
-        <!-- شمارش معکوس -->
+        <!-- ================= COUNTDOWN ================= -->
 
         <section class="countdown-section section">
 
-            <p class="section-label">
-                تا شروع این شب زیبا
-            </p>
+            <div class="section-inner">
 
-
-            <h2>
-                شمارش معکوس
-            </h2>
-
-
-            <div
-                class="countdown"
-                id="countdown"
-            >
-
-                <div class="count-box">
-
-                    <span id="days">
-                        --
-                    </span>
-
-                    <small>
-                        روز
-                    </small>
-
+                <div class="section-label">
+                    تا شروع این شب زیبا
                 </div>
 
+                <h2>
+                    لحظه‌شماری می‌کنیم
+                </h2>
 
-                <div class="count-separator">
-                    :
-                </div>
+                <div id="countdown" class="countdown">
 
+                    <div class="countdown-item">
+                        <span id="days">۰۰</span>
+                        <small>روز</small>
+                    </div>
 
-                <div class="count-box">
+                    <div class="countdown-item">
+                        <span id="hours">۰۰</span>
+                        <small>ساعت</small>
+                    </div>
 
-                    <span id="hours">
-                        --
-                    </span>
+                    <div class="countdown-item">
+                        <span id="minutes">۰۰</span>
+                        <small>دقیقه</small>
+                    </div>
 
-                    <small>
-                        ساعت
-                    </small>
-
-                </div>
-
-
-                <div class="count-separator">
-                    :
-                </div>
-
-
-                <div class="count-box">
-
-                    <span id="minutes">
-                        --
-                    </span>
-
-                    <small>
-                        دقیقه
-                    </small>
-
-                </div>
-
-
-                <div class="count-separator">
-                    :
-                </div>
-
-
-                <div class="count-box">
-
-                    <span id="seconds">
-                        --
-                    </span>
-
-                    <small>
-                        ثانیه
-                    </small>
+                    <div class="countdown-item">
+                        <span id="seconds">۰۰</span>
+                        <small>ثانیه</small>
+                    </div>
 
                 </div>
 
@@ -380,63 +265,50 @@
         </section>
 
 
-
-        <!-- پایان -->
+        <!-- ================= CLOSING ================= -->
 
         <section class="closing section">
 
-            <div class="closing-symbol">
-                ♡
-            </div>
+            <div class="section-inner">
 
+                <div class="closing-heart">
+                    ♡
+                </div>
 
-            <p>
-                حضورتان، شادیِ این شب را برای ما کامل‌تر می‌کند.
-            </p>
+                <p>
+                    حضورتان، شادیِ این شب را برای ما کامل‌تر می‌کند.
+                </p>
 
+                <h2>
+                    به یادگار از این شب زیبا
+                </h2>
 
-            <h2>
-                به یادگار از این شب زیبا
-            </h2>
+                <div class="closing-date">
+                    ۱۶ مهر ۱۴۰۵
+                </div>
 
+                <div class="closing-line"></div>
 
-            <div class="closing-date">
-                ۱۶ مهر ۱۴۰۵
+                <div class="closing-formal">
+                    در صورتی که توفیق میزبانی شما را در این شب نخواهیم داشت،
+                    مزید امتنان خواهد بود مراتب را به اطلاع ما برسانید.
+                </div>
+
             </div>
 
         </section>
 
 
-
-        <!-- فوتر -->
+        <!-- ================= FOOTER ================= -->
 
         <footer>
             با عشق، برای یک شب به‌یادماندنی
         </footer>
 
-
     </main>
-
-
-
-    <!-- دکمه موسیقی -->
-
-    <button
-        id="musicButton"
-        class="music-button hidden"
-        aria-label="پخش یا توقف موسیقی"
-    >
-
-        <span id="musicIcon">
-            ♫
-        </span>
-
-    </button>
-
 
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
