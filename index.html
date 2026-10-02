@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body>
 
@@ -29,7 +34,9 @@
                 به نام آنکه عشق را آفرید
             </div>
 
-            <div class="intro-heart">♡</div>
+            <div class="intro-heart">
+                ♡
+            </div>
 
             <h1>
                 یک آغاز <span>،</span> یک عشق
@@ -41,7 +48,12 @@
                 به جشن آغاز زندگی مشترکمان دعوتید
             </p>
 
-            <button id="enterButton" class="enter-button" type="button">
+            <button
+                id="enterButton"
+                class="enter-button"
+                type="button"
+                onclick="openInvitation()"
+            >
                 مشاهده دعوت‌نامه
                 <span>♡</span>
             </button>
@@ -55,11 +67,17 @@
 
     <main id="mainContent" class="main-content">
 
-        <!-- MUSIC -->
+        <!-- MUSIC BUTTON -->
 
-        <button id="musicButton" class="music-button" type="button" aria-label="پخش موسیقی">
+        <button
+            id="musicButton"
+            class="music-button"
+            type="button"
+            aria-label="پخش موسیقی"
+        >
             ♪
         </button>
+
 
         <audio id="weddingMusic" loop preload="auto">
             <source src="assets/music.mp3" type="audio/mpeg">
@@ -150,7 +168,10 @@
                 <div class="details-grid">
 
                     <div class="detail-card">
-                        <div class="detail-icon">♡</div>
+
+                        <div class="detail-icon">
+                            ♡
+                        </div>
 
                         <div class="detail-title">
                             تاریخ
@@ -164,7 +185,10 @@
 
 
                     <div class="detail-card">
-                        <div class="detail-icon">◷</div>
+
+                        <div class="detail-icon">
+                            ◷
+                        </div>
 
                         <div class="detail-title">
                             ساعت
@@ -179,7 +203,9 @@
 
                     <div class="detail-card location-card">
 
-                        <div class="detail-icon">⌖</div>
+                        <div class="detail-icon">
+                            ⌖
+                        </div>
 
                         <div class="detail-title">
                             مکان
@@ -203,7 +229,9 @@
 
                     <div class="detail-card">
 
-                        <div class="detail-icon">✦</div>
+                        <div class="detail-icon">
+                            ✦
+                        </div>
 
                         <div class="detail-title">
                             پذیرایی
@@ -308,7 +336,40 @@
     </main>
 
 
+    <!-- ================= DIRECT BUTTON FUNCTION ================= -->
+
+    <script>
+
+        function openInvitation() {
+
+            const intro = document.getElementById("intro");
+            const main = document.getElementById("mainContent");
+            const music = document.getElementById("weddingMusic");
+
+            intro.classList.add("hidden");
+            main.classList.add("visible");
+
+            if (music) {
+
+                music.play().catch(function () {
+                    console.log("Browser blocked automatic music playback.");
+                });
+
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+    </script>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
